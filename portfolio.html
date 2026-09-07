@@ -4,144 +4,60 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>แฟ้มสะสมผลงาน (Portfolio) - ธนภัฎ</title>
-<!-- ดึงฟอนต์ภาษาไทย (Sarabun) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
+* { box-sizing: border-box; margin: 0; padding: 0; }
 body { 
   font-family: 'Sarabun', sans-serif; 
-  background-color: #1D4F91; /* สีน้ำเงินมหิดล */
-  color: white;
-  text-align: center;
+  background-color: #1D4F91; 
+  color: white; 
+  text-align: center; 
   padding: 40px 20px; 
   line-height: 1.6;
 }
+.container { max-width: 800px; margin: 0 auto; }
 
-.container { 
-  max-width: 800px; 
-  margin: 0 auto; 
-}
-
-/* ส่วนโปรไฟล์ */
-.profile-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 25px;
-}
-
-.logo-wrapper {
-  width: 200px;
-  text-align: left;
-  margin-bottom: 10px;
-}
-
-.university-logo {
-  width: 60px;
-  height: auto;
-}
-
-.profile-img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 4px solid #FFC845; /* สีทองมหิดล */
+.profile-section { display: flex; flex-direction: column; align-items: center; margin-bottom: 25px; }
+.logo-wrapper { width: 200px; text-align: left; margin-bottom: 10px; }
+.university-logo { width: 60px; height: auto; }
+.profile-img { 
+  width: 200px; height: 200px; object-fit: cover; 
+  border-radius: 50%; border: 4px solid #FFC845; 
   box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
-.bio-text {
-  font-size: 1.1rem;
-  margin-bottom: 8px;
-}
-
-/* การจัดสไตล์กล่องเนื้อหา (Card) */
 .card { 
-  background: white; 
-  color: #333;
-  padding: 25px; 
-  margin: 25px 0; 
-  border-radius: 12px; 
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
-  text-align: left; 
+  background: white; color: #333; padding: 25px; 
+  margin: 25px 0; border-radius: 12px; 
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2); text-align: left; 
+}
+.card h2 { 
+  color: #1D4F91; font-size: 1.3rem; margin-bottom: 15px; 
+  border-bottom: 2px solid #FFC845; padding-bottom: 8px; 
 }
 
-.card h2 {
-  color: #1D4F91;
-  font-size: 1.3rem;
-  margin-bottom: 15px;
-  border-bottom: 2px solid #FFC845;
-  padding-bottom: 8px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.info-list { list-style: none; }
+.info-list li { margin-bottom: 8px; }
+
+.skill-list { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; margin-top: 10px; }
+.skill-tag { 
+  background-color: #eef3f9; color: #1D4F91; 
+  padding: 8px 16px; border-radius: 20px; 
+  font-size: 0.95rem; font-weight: 600; border: 1px solid #cce0f5; 
 }
 
-.info-list {
-  list-style: none;
-}
+.sub-item { margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px dashed #eee; }
+.sub-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
 
-.info-list li {
-  margin-bottom: 10px;
-  font-size: 1rem;
-}
-
-/* แสดงรายการทักษะ/ความสามารถ (Tags) */
-.skill-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  list-style: none;
-  margin-top: 10px;
-}
-
-.skill-tag {
-  background-color: #eef3f9;
-  color: #1D4F91;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  border: 1px solid #cce0f5;
-}
-
-.sub-item {
-  margin-bottom: 15px;
-  padding-bottom: 10px;
-  border-bottom: 1px dashed #eee;
-}
-
-.sub-item:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-/* ปุ่มกด */
 .btn { 
-  display: inline-block; 
-  background: #FFC845; 
-  color: #1D4F91; 
-  padding: 12px 28px; 
-  text-decoration: none; 
-  border-radius: 8px; 
-  margin-top: 20px; 
-  font-weight: bold;
-  transition: all 0.3s ease;
+  display: inline-block; background: #FFC845; color: #1D4F91; 
+  padding: 12px 28px; text-decoration: none; border-radius: 8px; 
+  margin-top: 20px; font-weight: bold; transition: all 0.3s ease;
 }
-
-.btn:hover {
-  background: #e5b33e;
-  transform: translateY(-2px);
-}
+.btn:hover { background: #e5b33e; transform: translateY(-2px); }
 </style>
 </head>
 <body>
@@ -149,88 +65,78 @@ body {
 <div class="container">
   <h1>แฟ้มสะสมผลงาน (Portfolio)</h1>
 
-  <!-- รูปโปรไฟล์ + ตรามหาวิทยาลัย -->
+  <!-- Header & Profile -->
   <div class="profile-section">
     <div class="logo-wrapper">
       <img src="img/IMG_7868.png" alt="ตรามหาวิทยาลัยมหิดล" class="university-logo">
     </div>
-    <img src="poom.jpg" alt="รูปโปรไฟล์ของฉัน" class="profile-img">
+    <img src="ppp.jpg" alt="รูปโปรไฟล์ของฉัน" class="profile-img">
   </div>
 
-  <p class="bio-text">สวัสดีครับ! ผมชื่อ <strong>นายธนภัฎ (Thanapat)</strong></p>
-  <p class="bio-text">แฟ้มสะสมผลงานเพื่อการเข้าศึกษาต่อในระดับอุดมศึกษา</p>
+  <p style="font-size: 1.2rem; margin-bottom: 5px;">สวัสดีครับ! ผมชื่อ <strong>นายธนภัฎ (Thanapat)</strong></p>
+  <p style="margin-bottom: 20px;">แฟ้มสะสมผลงานเพื่อการเข้าศึกษาต่อระดับอุดมศึกษา</p>
 
-  <!-- 1. คณะที่อยากเข้า (Target Faculty) -->
+  <!-- 1. คณะที่อยากเข้า & แรงบันดาลใจ (ชูจุดขายแรก) -->
   <div class="card">
     <h2>🎯 คณะและสาขาวิชาที่มุ่งหวัง</h2>
     <p><strong>คณะแพทยศาสตร์ มหาวิทยาลัยมหิดล</strong></p>
     <p style="margin-top: 8px; color: #555;">
-      <strong>แรงบันดาลใจ:</strong> มีความตั้งใจและมุ่งมั่นที่จะใช้วิชาความรู้ทางด้านการแพทย์และวิทยาศาสตร์ มาดูแลรักษาผู้ป่วย ตลอดจนพัฒนาเทคโนโลยีทางการแพทย์เพื่อยกระดับคุณภาพชีวิตของคนในสังคม
+      <strong>แรงบันดาลใจ:</strong> มีความตั้งใจและมุ่งมั่นที่จะใช้วิชาความรู้ทางด้านการแพทย์ และเทคโนโลยีวิทยาศาสตร์การคำนวณ มาช่วยรักษาผู้ป่วย ตลอดจนพัฒนาการดูแลสุขภาพของคนในสังคมให้ดียิ่งขึ้น
     </p>
   </div>
 
-  <!-- 2. ประวัติส่วนตัว (Personal Profile) -->
+  <!-- 2. ประวัติส่วนตัว & การศึกษา -->
   <div class="card">
     <h2>👤 ประวัติส่วนตัว (Personal Profile)</h2>
     <ul class="info-list">
       <li><strong>ชื่อ-นามสกุล:</strong> นายธนภัฎ (Thanapat)</li>
       <li><strong>แผนการเรียน:</strong> วิทยาศาสตร์ - คณิตศาสตร์</li>
-      <li><strong>โรงเรียน:</strong> [ระบุชื่อโรงเรียนของคุณ]</li>
+      <li><strong>โรงเรียน:</strong> [ระบุชื่อโรงเรียน]</li>
       <li><strong>เกรดเฉลี่ยสะสม (GPAX):</strong> [เช่น 3.85]</li>
-      <li><strong>ช่องทางติดต่อ:</strong> อีเมล thanapat@example.com | โทร 08X-XXX-XXXX</li>
     </ul>
   </div>
 
-  <!-- 3. ความสามารถพิเศษทางการแพทย์/วิชาการ (Special Skills) -->
+  <!-- 3. ความสามารถพิเศษทางการแพทย์ -->
   <div class="card">
     <h2>💡 ความสามารถพิเศษและทักษะเฉพาะทาง</h2>
-    <p>ทักษะที่เกี่ยวข้องกับการแพทย์ วิทยาศาสตร์ และการช่วยเหลือผู้อื่น:</p>
     <ul class="skill-list">
       <li class="skill-tag">🩺 การปฐมพยาบาลเบื้องต้น & CPR</li>
-      <li class="skill-tag">🧬 การทดลองปฏิบัติการชีววิทยา/เคมี</li>
+      <li class="skill-tag">🧬 ปฏิบัติการวิทยาศาสตร์/ชีววิทยา</li>
       <li class="skill-tag">💻 วิทยาศาสตร์การคำนวณ (Medical Data Analysis)</li>
-      <li class="skill-tag">🗣️ ทักษะการสื่อสารภาษาอังกฤษ (Medical Terminology)</li>
-      <li class="skill-tag">🤝 การทำงานร่วมกับผู้อื่นและการรับฟังด้วยความเข้าใจ (Empathy)</li>
+      <li class="skill-tag">🗣️ ภาษาอังกฤษทางการแพทย์ (Medical Terminology)</li>
+      <li class="skill-tag">🤝 การรับฟังด้วยความเข้าใจ (Empathy)</li>
     </ul>
   </div>
 
-  <!-- 4. ผลงานทางวิชาการ/โครงงาน (Academic Projects) -->
+  <!-- 4. กิจกรรม & การฝึกประสบการณ์ทางการแพทย์ (สำคัญมากสำหรับสายแพทย์) -->
   <div class="card">
-    <h2>🔬 ผลงานและโครงงานวิทยาศาสตร์</h2>
-    
+    <h2>🏥 กิจกรรมและการฝึกประสบการณ์ทางการแพทย์</h2>
+    <div class="sub-item">
+      <h3>1. การฝึกประสบการณ์/จิตอาสาในโรงพยาบาล</h3>
+      <p><strong>รายละเอียด:</strong> สังเกตการณ์การทำงานของทีมแพทย์ และช่วยดูแลอำนวยความสะดวกผู้ป่วย</p>
+    </div>
+    <div class="sub-item">
+      <h3>2. การอบรมการช่วยชีวิตขั้นพื้นฐาน (CPR & First Aid)</h3>
+      <p><strong>รายละเอียด:</strong> ได้รับใบประกาศนียบัตรผ่านการฝึกปฏิบัติจริง</p>
+    </div>
+  </div>
+
+  <!-- 5. ผลงานทางวิชาการ & โครงงาน -->
+  <div class="card">
+    <h2>🔬 ผลงานทางวิชาการและโครงงาน</h2>
     <div class="sub-item">
       <h3>1. โครงงานวิทยาศาสตร์คำนวณทางการแพทย์</h3>
-      <p><strong>รายละเอียด:</strong> พัฒนาแบบจำลองทางคณิตศาสตร์/คอมพิวเตอร์เพื่อช่วยวิเคราะห์แนวโน้มการแพร่กระจายของโรค...</p>
-      <p><strong>สิ่งที่ได้รับ:</strong> ได้เรียนรู้การประยุกต์ใช้ทักษะการคำนวณร่วมกับข้อมูลสุขภาพทางชีววิทยา</p>
-    </div>
-
-    <div class="sub-item">
-      <h3>2. รายงานการศึกษาค้นคว้าอิสระ (IS)</h3>
-      <p><strong>รายละเอียด:</strong> ศึกษาและรวบรวมข้อมูลเกี่ยวกับโครงสร้างของเซลล์และการตอบสนองต่อภูมิคุ้มกัน...</p>
+      <p><strong>รายละเอียด:</strong> เขียนโปรแกรม/แบบจำลองวิเคราะห์ข้อมูลทางชีววิทยาและสุขภาพ</p>
     </div>
   </div>
 
-  <!-- 5. กิจกรรมที่เข้าร่วม (Activities & Certificates) -->
+  <!-- 6. ช่องทางติดต่อ -->
   <div class="card">
-    <h2>🏥 กิจกรรมและการฝึกประสบการณ์</h2>
-    
-    <div class="sub-item">
-      <h3>1. กิจกรรมค่ายจิตอาสาและฝึกประสบการณ์ในโรงพยาบาล</h3>
-      <p><strong>รายละเอียด:</strong> เข้าร่วมโครงการ Observation/จิตอาสาช่วยเหลือเจ้าหน้าที่ในโรงพยาบาล เรียนรู้การทำงานจริงของทีมแพทย์และพยาบาล</p>
-    </div>
-
-    <div class="sub-item">
-      <h3>2. การอบรมเชิงปฏิบัติการด้านการปฐมพยาบาล (CPR & First Aid)</h3>
-      <p><strong>รายละเอียด:</strong> ผ่านการอบรมและได้รับใบประกาศนียบัตรการช่วยชีวิตขั้นพื้นฐาน</p>
-    </div>
-
-    <div class="sub-item">
-      <h3>3. การแข่งขันตอบปัญหาชีววิทยา/วิทยาศาสตร์การแพทย์</h3>
-      <p><strong>รายละเอียด:</strong> ตัวแทนโรงเรียนเข้าร่วมการแข่งขันตอบปัญหาทางวิชาการระดับจังหวัด/ประเทศ</p>
-    </div>
+    <h2>📞 ช่องทางการติดต่อ (Contact)</h2>
+    <p>📧 <strong>อีเมล:</strong> thanapat@example.com</p>
+    <p>📱 <strong>เบอร์โทรศัพท์:</strong> 08X-XXX-XXXX</p>
   </div>
 
-  <!-- ปุ่มกดกลับหน้าแรก -->
   <a href="index.html" class="btn">⬅️ กลับหน้าแรก</a>
 </div>
 
