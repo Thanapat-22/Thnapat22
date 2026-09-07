@@ -19,7 +19,19 @@ max-width: 500px;
 margin: 0 auto; 
 padding: 30px;
 }
-h1 { color: #2c3e50; }
+
+/* สไตล์รูปโปรไฟล์ที่เพิ่มเข้ามา */
+.profile-img {
+width: 130px;
+height: 130px;
+border-radius: 50%; /* ทำรูปเป็นวงกลม */
+object-fit: cover; /* ปรับรูปให้พอดีไม่เบี้ยว */
+border: 4px solid #FFC845; /* เพิ่มเส้นขอบสีทอง */
+margin-bottom: 15px;
+box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+h1 { color: #2c3e50; margin-top: 10px; }
 p { font-size: 18px; line-height: 1.6; }
 
 /* สไตล์ปุ่มแฟ้มสะสมงาน */
@@ -42,6 +54,9 @@ background-color: #e5b33e; /* เปลี่ยนเฉดเล็กน้�
 </head>
 <body>
 <div class="card">
+<!-- เพิ่มรูปโปรไฟล์ตรงนี้ (เปลี่ยน profile.jpg เป็นชื่อไฟล์รูปของคุณ) -->
+<img src="profile.jpg" alt="รูปโปรไฟล์ของธนภัฎ" class="profile-img">
+
 <h1>ยินดีต้อนรับสู่โปรไฟล์ของฉัน</h1>
 <p>สวัสดีครับ! ผมชื่อ <strong>ธนภัฎ (Thanapat)</strong></p>
 <p>ขณะนี้กำลังศึกษา/สนใจด้าน Science & Math</p>
