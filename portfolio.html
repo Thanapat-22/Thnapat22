@@ -25,21 +25,22 @@ body {
   display: flex; 
   flex-direction: column; 
   align-items: center; 
-  position: relative; /* ใช้จัดตำแหน่งตรามหาลัย */
+  position: relative; 
   margin-bottom: 25px; 
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
 .logo-wrapper { 
   position: absolute;
-  top: 0;
-  right: 10px; /* ปรับให้อยู่มุมขวาบน */
+  top: -10px; /* ขยับตำแหน่งขึ้นด้านบน */
+  right: -5px; /* ขยับตำแหน่งชิดขวา */
 }
 
+/* 🎯 จุดที่ปรับให้ตรามหาลัยใหญ่ขึ้น */
 .university-logo { 
-  width: 90px; /* ขยายขนาดตรามหาลัยให้ใหญ่ขึ้น */
+  width: 130px; /* เพิ่มขนาดจากเดิม (ถ้ายังอยากได้ใหญ่กว่านี้ เปลี่ยนเป็น 150px หรือ 180px ได้ครับ) */
   height: auto;
-  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.35));
 }
 
 .profile-img { 
@@ -49,7 +50,7 @@ body {
   border-radius: 50%; 
   border: 4px solid #FFC845; 
   box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-  margin-top: 20px;
+  margin-top: 30px; /* เว้นระยะไม่ให้ชนตรามหาลัย */
 }
 
 .card { 
@@ -87,7 +88,6 @@ body {
 .sub-item { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px dashed #eee; }
 .sub-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
 
-/* สไตล์รูปภาพผลงานและกิจกรรม */
 .item-img {
   width: 100%;
   max-height: 280px;
@@ -116,12 +116,12 @@ body {
 <div class="container">
   <h1>แฟ้มสะสมผลงาน (Portfolio)</h1>
 
-  <!-- Header & Profile (ตรามหาลัยมุมขวาบน) -->
+  <!-- Header & Profile (ตรามหาลัยขนาดใหญ่ มุมขวาบน) -->
   <div class="profile-section">
     <div class="logo-wrapper">
       <img src="img/IMG_7868.png" alt="ตรามหาวิทยาลัยมหิดล" class="university-logo">
     </div>
-    <img src="img/poom.jpg" alt="รูปโปรไฟล์ของฉัน" class="profile-img">
+    <img src="ppp.jpg" alt="รูปโปรไฟล์ของฉัน" class="profile-img">
   </div>
 
   <p style="font-size: 1.2rem; margin-bottom: 5px;">สวัสดีครับ! ผมชื่อ <strong>นายธนภัฎ (Thanapat)</strong></p>
@@ -159,32 +159,29 @@ body {
     </ul>
   </div>
 
-  <!-- 4. กิจกรรม & ฝึกประสบการณ์ (ใส่รูปภาพได้) -->
+  <!-- 4. กิจกรรม & ฝึกประสบการณ์ -->
   <div class="card">
     <h2>🏥 กิจกรรมและการฝึกประสบการณ์ทางการแพทย์</h2>
     
     <div class="sub-item">
       <h3>1. การฝึกประสบการณ์/จิตอาสาในโรงพยาบาล</h3>
-      <!-- ใส่รูปภาพกิจกรรม 1 -->
       <img src="img/activity1.jpg" alt="ภาพกิจกรรมจิตอาสาโรงพยาบาล" class="item-img">
       <p><strong>รายละเอียด:</strong> สังเกตการณ์การทำงานของทีมแพทย์ และช่วยดูแลอำนวยความสะดวกผู้ป่วย</p>
     </div>
 
     <div class="sub-item">
       <h3>2. การอบรมการช่วยชีวิตขั้นพื้นฐาน (CPR & First Aid)</h3>
-      <!-- ใส่รูปภาพกิจกรรม 2 -->
       <img src="img/activity2.jpg" alt="ภาพการอบรม CPR" class="item-img">
       <p><strong>รายละเอียด:</strong> ได้รับใบประกาศนียบัตรผ่านการฝึกปฏิบัติจริง</p>
     </div>
   </div>
 
-  <!-- 5. ผลงานทางวิชาการ & โครงงาน (ใส่รูปภาพได้) -->
+  <!-- 5. ผลงานทางวิชาการ & โครงงาน -->
   <div class="card">
     <h2>🔬 ผลงานทางวิชาการและโครงงาน</h2>
     
     <div class="sub-item">
       <h3>1. โครงงานวิทยาศาสตร์คำนวณทางการแพทย์</h3>
-      <!-- ใส่รูปภาพผลงาน -->
       <img src="img/project1.jpg" alt="ภาพโครงงานวิทยาศาสตร์" class="item-img">
       <p><strong>รายละเอียด:</strong> เขียนโปรแกรม/แบบจำลองวิเคราะห์ข้อมูลทางชีววิทยาและสุขภาพ</p>
     </div>
@@ -200,5 +197,7 @@ body {
   <a href="index.html" class="btn">⬅️ กลับหน้าแรก</a>
 </div>
 
+</body>
+</html>
 </body>
 </html>
