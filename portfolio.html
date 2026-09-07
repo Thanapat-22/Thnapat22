@@ -16,6 +16,34 @@ padding: 30px;
 max-width: 800px; 
 margin: 0 auto; 
 }
+
+/* ส่วนจัดวางรูปภาพให้ตรามหาลัยอยู่ด้านบนฝั่งซ้าย */
+.profile-section {
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-bottom: 20px;
+}
+
+.logo-wrapper {
+width: 200px; /* ให้ความกว้างเท่ากับรูปโปรไฟล์ */
+text-align: left; /* จัดตรามหาลัยให้อยู่ฝั่งซ้าย */
+margin-bottom: 10px;
+}
+
+.university-logo {
+width: 60px; /* ขนาดตรามหาวิทยาลัย */
+height: auto;
+}
+
+.profile-img {
+width: 200px;
+height: 200px;
+object-fit: cover;
+border-radius: 50%;
+border: 4px solid #FFC845;
+}
+
 .project-card { 
 background: white; 
 color: #333;
@@ -25,6 +53,7 @@ border-radius: 12px;
 box-shadow: 0 4px 10px rgba(0,0,0,0.15); 
 text-align: left; 
 }
+
 .btn { 
 display: inline-block; 
 background: #FFC845; /* สีทองประจำมหาวิทยาลัยมหิดล */
@@ -36,19 +65,26 @@ margin-top: 20px;
 font-weight: bold;
 transition: background-color 0.3s ease;
 }
+
 .btn:hover {
 background: #e5b33e;
-}
-img {
-border-radius: 50%;
-border: 4px solid #FFC845;
 }
 </style>
 </head>
 <body>
 <div class="container">
 <h1>แฟ้มสะสมผลงาน (Portfolio)</h1>
-<img src="img/poom.jpg" alt="รูปโปรไฟล์ของฉัน" width="200">
+
+<!-- ส่วนรูปภาพโปรไฟล์ + ตรามหาวิทยาลัย -->
+<div class="profile-section">
+  <div class="logo-wrapper">
+    <!-- ใส่รูปตรามหาวิทยาลัยฝั่งซ้ายด้านบน -->
+    <img src="img/IMG_7868.png" alt="ตรามหาวิทยาลัยมหิดล" class="university-logo">
+  </div>
+  <!-- รูปโปรไฟล์ของคุณ -->
+  <img src="ppp.jpg" alt="รูปโปรไฟล์ของฉัน" class="profile-img">
+</div>
+
 <p>สวัสดีครับ! ผมชื่อ <strong>ธนภัฎ (Thanapat)</strong></p>
 <p>นี่คือพื้นที่รวบรวมผลงานและกิจกรรมที่ภูมิใจครับ</p>
 
