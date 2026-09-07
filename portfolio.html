@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>แฟ้มสะสมผลงานของฉัน</title>
-<!-- ดึงฟอนต์ Thai (Sarabun) เพื่อความสวยงาม -->
+<title>แฟ้มสะสมผลงาน (Portfolio) - ธนภัฎ</title>
+<!-- ดึงฟอนต์ภาษาไทย (Sarabun) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -30,6 +30,7 @@ body {
   margin: 0 auto; 
 }
 
+/* ส่วนโปรไฟล์ */
 .profile-section {
   display: flex;
   flex-direction: column;
@@ -54,12 +55,12 @@ body {
   object-fit: cover;
   border-radius: 50%;
   border: 4px solid #FFC845; /* สีทองมหิดล */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 .bio-text {
   font-size: 1.1rem;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 /* การจัดสไตล์กล่องเนื้อหา (Card) */
@@ -79,39 +80,52 @@ body {
   margin-bottom: 15px;
   border-bottom: 2px solid #FFC845;
   padding-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-/* รายการทักษะ (Skill Tags) */
+.info-list {
+  list-style: none;
+}
+
+.info-list li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+/* แสดงรายการทักษะ/ความสามารถ (Tags) */
 .skill-list {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   list-style: none;
+  margin-top: 10px;
 }
 
 .skill-tag {
   background-color: #eef3f9;
   color: #1D4F91;
-  padding: 6px 14px;
+  padding: 8px 16px;
   border-radius: 20px;
   font-size: 0.95rem;
   font-weight: 600;
+  border: 1px solid #cce0f5;
 }
 
-/* การจัดรูปภาพในผลงาน */
-.project-img {
-  width: 100%;
-  max-height: 250px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin: 10px 0;
+.sub-item {
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #eee;
 }
 
-/* ข้อมูลติดต่อ */
-.contact-info p {
-  margin-bottom: 8px;
+.sub-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
+/* ปุ่มกด */
 .btn { 
   display: inline-block; 
   background: #FFC845; 
@@ -121,7 +135,7 @@ body {
   border-radius: 8px; 
   margin-top: 20px; 
   font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .btn:hover {
@@ -135,7 +149,7 @@ body {
 <div class="container">
   <h1>แฟ้มสะสมผลงาน (Portfolio)</h1>
 
-  <!-- ส่วนรูปภาพโปรไฟล์ + ตรามหาวิทยาลัย -->
+  <!-- รูปโปรไฟล์ + ตรามหาวิทยาลัย -->
   <div class="profile-section">
     <div class="logo-wrapper">
       <img src="img/IMG_7868.png" alt="ตรามหาวิทยาลัยมหิดล" class="university-logo">
@@ -143,51 +157,77 @@ body {
     <img src="ppp.jpg" alt="รูปโปรไฟล์ของฉัน" class="profile-img">
   </div>
 
-  <p class="bio-text">สวัสดีครับ! ผมชื่อ <strong>ธนภัฎ (Thanapat)</strong></p>
-  <p class="bio-text">นักเรียนผู้มีความสนใจในด้านวิทยาศาสตร์คำนวณและเทคโนโลยี</p>
+  <p class="bio-text">สวัสดีครับ! ผมชื่อ <strong>นายธนภัฎ (Thanapat)</strong></p>
+  <p class="bio-text">แฟ้มสะสมผลงานเพื่อการเข้าศึกษาต่อในระดับอุดมศึกษา</p>
 
-  <!-- 1. ส่วนประวัติส่วนตัว/แนะนำตัว (About Me) -->
+  <!-- 1. คณะที่อยากเข้า (Target Faculty) -->
   <div class="card">
-    <h2>👤 เกี่ยวกับฉัน (About Me)</h2>
-    <p>ผมมีความสนใจและหลงใหลเกี่ยวกับวิทยาศาสตร์คอมพิวเตอร์และการพัฒนาโปรแกรม มีความมุ่งมั่นที่จะศึกษาต่อด้านนี้เพื่อนำความรู้มาประยุกต์ใช้ในการแก้ปัญหาจริงในสังคม</p>
+    <h2>🎯 คณะและสาขาวิชาที่มุ่งหวัง</h2>
+    <p><strong>คณะแพทยศาสตร์ มหาวิทยาลัยมหิดล</strong></p>
+    <p style="margin-top: 8px; color: #555;">
+      <strong>แรงบันดาลใจ:</strong> มีความตั้งใจและมุ่งมั่นที่จะใช้วิชาความรู้ทางด้านการแพทย์และวิทยาศาสตร์ มาดูแลรักษาผู้ป่วย ตลอดจนพัฒนาเทคโนโลยีทางการแพทย์เพื่อยกระดับคุณภาพชีวิตของคนในสังคม
+    </p>
   </div>
 
-  <!-- 2. ส่วนทักษะและความสามารถ (Skills) -->
+  <!-- 2. ประวัติส่วนตัว (Personal Profile) -->
   <div class="card">
-    <h2>💡 ทักษะและความสามารถ (Skills)</h2>
-    <ul class="skill-list">
-      <li class="skill-tag">Python</li>
-      <li class="skill-tag">HTML / CSS</li>
-      <li class="skill-tag">การคิดเชิงคำนวณ (Computational Thinking)</li>
-      <li class="skill-tag">การแก้ปัญหา (Problem Solving)</li>
-      <li class="skill-tag">ภาษาอังกฤษ (English)</li>
+    <h2>👤 ประวัติส่วนตัว (Personal Profile)</h2>
+    <ul class="info-list">
+      <li><strong>ชื่อ-นามสกุล:</strong> นายธนภัฎ (Thanapat)</li>
+      <li><strong>แผนการเรียน:</strong> วิทยาศาสตร์ - คณิตศาสตร์</li>
+      <li><strong>โรงเรียน:</strong> [ระบุชื่อโรงเรียนของคุณ]</li>
+      <li><strong>เกรดเฉลี่ยสะสม (GPAX):</strong> [เช่น 3.85]</li>
+      <li><strong>ช่องทางติดต่อ:</strong> อีเมล thanapat@example.com | โทร 08X-XXX-XXXX</li>
     </ul>
   </div>
 
-  <!-- 3. ส่วนผลงาน/โครงการ (Projects) -->
+  <!-- 3. ความสามารถพิเศษทางการแพทย์/วิชาการ (Special Skills) -->
   <div class="card">
-    <h2>📁 ผลงานและโครงการ (Projects)</h2>
+    <h2>💡 ความสามารถพิเศษและทักษะเฉพาะทาง</h2>
+    <p>ทักษะที่เกี่ยวข้องกับการแพทย์ วิทยาศาสตร์ และการช่วยเหลือผู้อื่น:</p>
+    <ul class="skill-list">
+      <li class="skill-tag">🩺 การปฐมพยาบาลเบื้องต้น & CPR</li>
+      <li class="skill-tag">🧬 การทดลองปฏิบัติการชีววิทยา/เคมี</li>
+      <li class="skill-tag">💻 วิทยาศาสตร์การคำนวณ (Medical Data Analysis)</li>
+      <li class="skill-tag">🗣️ ทักษะการสื่อสารภาษาอังกฤษ (Medical Terminology)</li>
+      <li class="skill-tag">🤝 การทำงานร่วมกับผู้อื่นและการรับฟังด้วยความเข้าใจ (Empathy)</li>
+    </ul>
+  </div>
+
+  <!-- 4. ผลงานทางวิชาการ/โครงงาน (Academic Projects) -->
+  <div class="card">
+    <h2>🔬 ผลงานและโครงงานวิทยาศาสตร์</h2>
     
-    <div style="margin-bottom: 20px;">
-      <h3>1. โครงงานวิทยาศาสตร์คำนวณ</h3>
-      <!-- คุณสามารถใส่รูปตัวอย่างผลงานได้ที่นี่ -->
-      <!-- <img src="project1.jpg" alt="ตัวอย่างผลงาน" class="project-img"> -->
-      <p><strong>รายละเอียด:</strong> พัฒนาโปรแกรมสำหรับคำนวณและวิเคราะห์ข้อมูล...</p>
-      <p><strong>สิ่งที่ได้เรียนรู้:</strong> ได้ฝึกกระบวนการคิดวิเคราะห์ และการแก้ไขปัญหา Logic ในการเขียนโค้ด</p>
+    <div class="sub-item">
+      <h3>1. โครงงานวิทยาศาสตร์คำนวณทางการแพทย์</h3>
+      <p><strong>รายละเอียด:</strong> พัฒนาแบบจำลองทางคณิตศาสตร์/คอมพิวเตอร์เพื่อช่วยวิเคราะห์แนวโน้มการแพร่กระจายของโรค...</p>
+      <p><strong>สิ่งที่ได้รับ:</strong> ได้เรียนรู้การประยุกต์ใช้ทักษะการคำนวณร่วมกับข้อมูลสุขภาพทางชีววิทยา</p>
     </div>
 
-    <div>
-      <h3>2. กิจกรรม/เกียรติบัตรที่ได้รับ</h3>
-      <p><strong>รายละเอียด:</strong> เข้าร่วมการประกวดแข่งขันการแข่งขันเขียนโปรแกรมระดับโรงเรียน...</p>
+    <div class="sub-item">
+      <h3>2. รายงานการศึกษาค้นคว้าอิสระ (IS)</h3>
+      <p><strong>รายละเอียด:</strong> ศึกษาและรวบรวมข้อมูลเกี่ยวกับโครงสร้างของเซลล์และการตอบสนองต่อภูมิคุ้มกัน...</p>
     </div>
   </div>
 
-  <!-- 4. ส่วนช่องทางการติดต่อ (Contact) -->
-  <div class="card contact-info">
-    <h2>📞 ช่องทางการติดต่อ (Contact)</h2>
-    <p>📧 <strong>อีเมล:</strong> thanapat@example.com</p>
-    <p>📱 <strong>เบอร์โทรศัพท์:</strong> 08X-XXX-XXXX</p>
-    <p>🌐 <strong>GitHub / Facebook:</strong> github.com/thanapat</p>
+  <!-- 5. กิจกรรมที่เข้าร่วม (Activities & Certificates) -->
+  <div class="card">
+    <h2>🏥 กิจกรรมและการฝึกประสบการณ์</h2>
+    
+    <div class="sub-item">
+      <h3>1. กิจกรรมค่ายจิตอาสาและฝึกประสบการณ์ในโรงพยาบาล</h3>
+      <p><strong>รายละเอียด:</strong> เข้าร่วมโครงการ Observation/จิตอาสาช่วยเหลือเจ้าหน้าที่ในโรงพยาบาล เรียนรู้การทำงานจริงของทีมแพทย์และพยาบาล</p>
+    </div>
+
+    <div class="sub-item">
+      <h3>2. การอบรมเชิงปฏิบัติการด้านการปฐมพยาบาล (CPR & First Aid)</h3>
+      <p><strong>รายละเอียด:</strong> ผ่านการอบรมและได้รับใบประกาศนียบัตรการช่วยชีวิตขั้นพื้นฐาน</p>
+    </div>
+
+    <div class="sub-item">
+      <h3>3. การแข่งขันตอบปัญหาชีววิทยา/วิทยาศาสตร์การแพทย์</h3>
+      <p><strong>รายละเอียด:</strong> ตัวแทนโรงเรียนเข้าร่วมการแข่งขันตอบปัญหาทางวิชาการระดับจังหวัด/ประเทศ</p>
+    </div>
   </div>
 
   <!-- ปุ่มกดกลับหน้าแรก -->
