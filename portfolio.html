@@ -20,23 +20,54 @@ body {
 }
 .container { max-width: 800px; margin: 0 auto; }
 
-.profile-section { display: flex; flex-direction: column; align-items: center; margin-bottom: 25px; }
-.logo-wrapper { width: 200px; text-align: left; margin-bottom: 10px; }
-.university-logo { width: 60px; height: auto; }
+/* Layout โปรไฟล์ + ตรามหาวิทยาลัยมุมขวาบน */
+.profile-section { 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  position: relative; /* ใช้จัดตำแหน่งตรามหาลัย */
+  margin-bottom: 25px; 
+  padding-top: 20px;
+}
+
+.logo-wrapper { 
+  position: absolute;
+  top: 0;
+  right: 10px; /* ปรับให้อยู่มุมขวาบน */
+}
+
+.university-logo { 
+  width: 90px; /* ขยายขนาดตรามหาลัยให้ใหญ่ขึ้น */
+  height: auto;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+}
+
 .profile-img { 
-  width: 200px; height: 200px; object-fit: cover; 
-  border-radius: 50%; border: 4px solid #FFC845; 
+  width: 200px; 
+  height: 200px; 
+  object-fit: cover; 
+  border-radius: 50%; 
+  border: 4px solid #FFC845; 
   box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  margin-top: 20px;
 }
 
 .card { 
-  background: white; color: #333; padding: 25px; 
-  margin: 25px 0; border-radius: 12px; 
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2); text-align: left; 
+  background: white; 
+  color: #333; 
+  padding: 25px; 
+  margin: 25px 0; 
+  border-radius: 12px; 
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
+  text-align: left; 
 }
+
 .card h2 { 
-  color: #1D4F91; font-size: 1.3rem; margin-bottom: 15px; 
-  border-bottom: 2px solid #FFC845; padding-bottom: 8px; 
+  color: #1D4F91; 
+  font-size: 1.3rem; 
+  margin-bottom: 15px; 
+  border-bottom: 2px solid #FFC845; 
+  padding-bottom: 8px; 
 }
 
 .info-list { list-style: none; }
@@ -44,18 +75,38 @@ body {
 
 .skill-list { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; margin-top: 10px; }
 .skill-tag { 
-  background-color: #eef3f9; color: #1D4F91; 
-  padding: 8px 16px; border-radius: 20px; 
-  font-size: 0.95rem; font-weight: 600; border: 1px solid #cce0f5; 
+  background-color: #eef3f9; 
+  color: #1D4F91; 
+  padding: 8px 16px; 
+  border-radius: 20px; 
+  font-size: 0.95rem; 
+  font-weight: 600; 
+  border: 1px solid #cce0f5; 
 }
 
-.sub-item { margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px dashed #eee; }
+.sub-item { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px dashed #eee; }
 .sub-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
 
+/* สไตล์รูปภาพผลงานและกิจกรรม */
+.item-img {
+  width: 100%;
+  max-height: 280px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 12px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
 .btn { 
-  display: inline-block; background: #FFC845; color: #1D4F91; 
-  padding: 12px 28px; text-decoration: none; border-radius: 8px; 
-  margin-top: 20px; font-weight: bold; transition: all 0.3s ease;
+  display: inline-block; 
+  background: #FFC845; 
+  color: #1D4F91; 
+  padding: 12px 28px; 
+  text-decoration: none; 
+  border-radius: 8px; 
+  margin-top: 20px; 
+  font-weight: bold; 
+  transition: all 0.3s ease;
 }
 .btn:hover { background: #e5b33e; transform: translateY(-2px); }
 </style>
@@ -65,7 +116,7 @@ body {
 <div class="container">
   <h1>แฟ้มสะสมผลงาน (Portfolio)</h1>
 
-  <!-- Header & Profile -->
+  <!-- Header & Profile (ตรามหาลัยมุมขวาบน) -->
   <div class="profile-section">
     <div class="logo-wrapper">
       <img src="img/IMG_7868.png" alt="ตรามหาวิทยาลัยมหิดล" class="university-logo">
@@ -76,7 +127,7 @@ body {
   <p style="font-size: 1.2rem; margin-bottom: 5px;">สวัสดีครับ! ผมชื่อ <strong>นายธนภัฎ (Thanapat)</strong></p>
   <p style="margin-bottom: 20px;">แฟ้มสะสมผลงานเพื่อการเข้าศึกษาต่อระดับอุดมศึกษา</p>
 
-  <!-- 1. คณะที่อยากเข้า & แรงบันดาลใจ (ชูจุดขายแรก) -->
+  <!-- 1. คณะที่อยากเข้า -->
   <div class="card">
     <h2>🎯 คณะและสาขาวิชาที่มุ่งหวัง</h2>
     <p><strong>คณะแพทยศาสตร์ มหาวิทยาลัยมหิดล</strong></p>
@@ -85,7 +136,7 @@ body {
     </p>
   </div>
 
-  <!-- 2. ประวัติส่วนตัว & การศึกษา -->
+  <!-- 2. ประวัติส่วนตัว -->
   <div class="card">
     <h2>👤 ประวัติส่วนตัว (Personal Profile)</h2>
     <ul class="info-list">
@@ -96,7 +147,7 @@ body {
     </ul>
   </div>
 
-  <!-- 3. ความสามารถพิเศษทางการแพทย์ -->
+  <!-- 3. ความสามารถพิเศษ -->
   <div class="card">
     <h2>💡 ความสามารถพิเศษและทักษะเฉพาะทาง</h2>
     <ul class="skill-list">
@@ -108,24 +159,33 @@ body {
     </ul>
   </div>
 
-  <!-- 4. กิจกรรม & การฝึกประสบการณ์ทางการแพทย์ (สำคัญมากสำหรับสายแพทย์) -->
+  <!-- 4. กิจกรรม & ฝึกประสบการณ์ (ใส่รูปภาพได้) -->
   <div class="card">
     <h2>🏥 กิจกรรมและการฝึกประสบการณ์ทางการแพทย์</h2>
+    
     <div class="sub-item">
       <h3>1. การฝึกประสบการณ์/จิตอาสาในโรงพยาบาล</h3>
+      <!-- ใส่รูปภาพกิจกรรม 1 -->
+      <img src="img/activity1.jpg" alt="ภาพกิจกรรมจิตอาสาโรงพยาบาล" class="item-img">
       <p><strong>รายละเอียด:</strong> สังเกตการณ์การทำงานของทีมแพทย์ และช่วยดูแลอำนวยความสะดวกผู้ป่วย</p>
     </div>
+
     <div class="sub-item">
       <h3>2. การอบรมการช่วยชีวิตขั้นพื้นฐาน (CPR & First Aid)</h3>
+      <!-- ใส่รูปภาพกิจกรรม 2 -->
+      <img src="img/activity2.jpg" alt="ภาพการอบรม CPR" class="item-img">
       <p><strong>รายละเอียด:</strong> ได้รับใบประกาศนียบัตรผ่านการฝึกปฏิบัติจริง</p>
     </div>
   </div>
 
-  <!-- 5. ผลงานทางวิชาการ & โครงงาน -->
+  <!-- 5. ผลงานทางวิชาการ & โครงงาน (ใส่รูปภาพได้) -->
   <div class="card">
     <h2>🔬 ผลงานทางวิชาการและโครงงาน</h2>
+    
     <div class="sub-item">
       <h3>1. โครงงานวิทยาศาสตร์คำนวณทางการแพทย์</h3>
+      <!-- ใส่รูปภาพผลงาน -->
+      <img src="img/project1.jpg" alt="ภาพโครงงานวิทยาศาสตร์" class="item-img">
       <p><strong>รายละเอียด:</strong> เขียนโปรแกรม/แบบจำลองวิเคราะห์ข้อมูลทางชีววิทยาและสุขภาพ</p>
     </div>
   </div>
