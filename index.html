@@ -5,7 +5,7 @@
 <title>หน้าแนะนำตัวของฉัน</title>
 <style>
 body {
-background-color: #001C71; /* เปลี่ยนเป็นสีประจำมหาวิทยาลัยมหิดล */
+background-color: #001C71; /* สีน้ำเงินประจำมหาวิทยาลัยมหิดล */
 color: #333;
 text-align: center; 
 padding: 50px;
@@ -21,6 +21,23 @@ padding: 30px;
 }
 h1 { color: #2c3e50; }
 p { font-size: 18px; line-height: 1.6; }
+
+/* สไตล์ปุ่มแฟ้มสะสมงาน */
+.btn-portfolio {
+display: inline-block;
+background-color: #FFC845; /* สีทอง/เหลืองทองสไตล์มหิดล */
+color: #001C71; /* ตัวอักษรสีน้ำเงินเข้ม */
+padding: 12px 24px;
+text-decoration: none;
+border-radius: 8px;
+margin-top: 15px;
+font-weight: bold;
+transition: background-color 0.3s ease;
+}
+
+.btn-portfolio:hover {
+background-color: #e5b33e; /* เปลี่ยนเฉดเล็กน้อยเมื่อนำเมาส์ไปชี้ */
+}
 </style>
 </head>
 <body>
@@ -29,7 +46,7 @@ p { font-size: 18px; line-height: 1.6; }
 <p>สวัสดีครับ! ผมชื่อ <strong>ธนภัฎ (Thanapat)</strong></p>
 <p>ขณะนี้กำลังศึกษา/สนใจด้าน Science & Math</p>
 <p>นี่คือเว็บไซต์แรกของผมที่โฮสต์บน GitHub Pages!</p>
-<a href="portfolio.html" style="display:inline-block; background:#3498db; color:white; padding:10px 20px; text-decoration:none; border-radius:5px; margin-top:15px;">👉 ดูแฟ้มสะสมงานของผม</a>
+<a href="portfolio.html" class="btn-portfolio">👉 ดูแฟ้มสะสมงานของผม</a>
 </div>
 </body>
 </html>
