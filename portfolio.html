@@ -10,6 +10,7 @@
 
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 body { 
   font-family: 'Sarabun', sans-serif; 
   background-color: #1D4F91; 
@@ -20,7 +21,6 @@ body {
 }
 .container { max-width: 800px; margin: 0 auto; }
 
-/* Layout โปรไฟล์ + ตรามหาวิทยาลัยมุมขวาบน */
 .profile-section { 
   display: flex; 
   flex-direction: column; 
@@ -32,13 +32,12 @@ body {
 
 .logo-wrapper { 
   position: absolute;
-  top: -10px; /* ขยับตำแหน่งขึ้นด้านบน */
-  right: -5px; /* ขยับตำแหน่งชิดขวา */
+  top: -10px;
+  right: -5px;
 }
 
-/* 🎯 จุดที่ปรับให้ตรามหาลัยใหญ่ขึ้น */
 .university-logo { 
-  width: 130px; /* เพิ่มขนาดจากเดิม (ถ้ายังอยากได้ใหญ่กว่านี้ เปลี่ยนเป็น 150px หรือ 180px ได้ครับ) */
+  width: 130px;
   height: auto;
   filter: drop-shadow(0 4px 10px rgba(0,0,0,0.35));
 }
@@ -50,8 +49,30 @@ body {
   border-radius: 50%; 
   border: 4px solid #FFC845; 
   box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-  margin-top: 30px; /* เว้นระยะไม่ให้ชนตรามหาลัย */
+  margin-top: 30px;
 }
+
+.nav-menu {
+  position: sticky;
+  top: 0;
+  background: #1D4F91;
+  padding: 12px 0;
+  margin: 0 -20px 20px -20px;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background 0.2s;
+  display: inline-block;
+}
+.nav-menu a:hover { background: rgba(255,255,255,0.15); }
 
 .card { 
   background: white; 
@@ -61,6 +82,7 @@ body {
   border-radius: 12px; 
   box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
   text-align: left; 
+  scroll-margin-top: 70px;
 }
 
 .card h2 { 
@@ -116,7 +138,6 @@ body {
 <div class="container">
   <h1>แฟ้มสะสมผลงาน (Portfolio)</h1>
 
-  <!-- Header & Profile (ตรามหาลัยขนาดใหญ่ มุมขวาบน) -->
   <div class="profile-section">
     <div class="logo-wrapper">
       <img src="img/IMG_7868.png" alt="ตรามหาวิทยาลัยมหิดล" class="university-logo">
@@ -127,17 +148,16 @@ body {
   <p style="font-size: 1.2rem; margin-bottom: 5px;">สวัสดีครับ! ผมชื่อ <strong>นายธนภัฎ (Thanapat)</strong></p>
   <p style="margin-bottom: 20px;">แฟ้มสะสมผลงานเพื่อการเข้าศึกษาต่อระดับอุดมศึกษา</p>
 
-  <!-- 1. คณะที่อยากเข้า -->
-  <div class="card">
-    <h2>🎯 คณะและสาขาวิชาที่มุ่งหวัง</h2>
-    <p><strong>คณะแพทยศาสตร์ มหาวิทยาลัยมหิดล</strong></p>
-    <p style="margin-top: 8px; color: #555;">
-      <strong>แรงบันดาลใจ:</strong> มีความตั้งใจและมุ่งมั่นที่จะใช้วิชาความรู้ทางด้านการแพทย์ และเทคโนโลยีวิทยาศาสตร์การคำนวณ มาช่วยรักษาผู้ป่วย ตลอดจนพัฒนาการดูแลสุขภาพของคนในสังคมให้ดียิ่งขึ้น
-    </p>
-  </div>
-
-  <!-- 2. ประวัติส่วนตัว -->
-  <div class="card">
+  <nav class="nav-menu">
+    <a href="#target">🎯 คณะที่มุ่งหวัง</a>
+    <a href="#profile">👤 ประวัติส่วนตัว</a>
+    <a href="#skills">💡 ความสามารถพิเศษ</a>
+    <a href="#activities">🏥 กิจกรรม</a>
+    <a href="#projects">🔬 ผลงาน</a>
+    <a href="#contact">📞 ติดต่อ</a>
+  </nav>
+  
+  <div class="card" id="profile">
     <h2>👤 ประวัติส่วนตัว (Personal Profile)</h2>
     <ul class="info-list">
       <li><strong>ชื่อ-นามสกุล:</strong> นายธนภัฎ (Thanapat)</li>
@@ -147,20 +167,15 @@ body {
     </ul>
   </div>
 
-  <!-- 3. ความสามารถพิเศษ -->
-  <div class="card">
-    <h2>💡 ความสามารถพิเศษและทักษะเฉพาะทาง</h2>
-    <ul class="skill-list">
-      <li class="skill-tag">🩺 การปฐมพยาบาลเบื้องต้น & CPR</li>
-      <li class="skill-tag">🧬 ปฏิบัติการวิทยาศาสตร์/ชีววิทยา</li>
-      <li class="skill-tag">💻 วิทยาศาสตร์การคำนวณ (Medical Data Analysis)</li>
-      <li class="skill-tag">🗣️ ภาษาอังกฤษทางการแพทย์ (Medical Terminology)</li>
-      <li class="skill-tag">🤝 การรับฟังด้วยความเข้าใจ (Empathy)</li>
-    </ul>
+   <div class="card" id="target">
+    <h2>🎯 คณะและสาขาวิชาที่มุ่งหวัง</h2>
+    <p><strong>คณะแพทยศาสตร์ มหาวิทยาลัยมหิดล</strong></p>
+    <p style="margin-top: 8px; color: #555;">
+      <strong>แรงบันดาลใจ:</strong> มีความตั้งใจและมุ่งมั่นที่จะใช้วิชาความรู้ทางด้านการแพทย์ และเทคโนโลยีวิทยาศาสตร์การคำนวณ มาช่วยรักษาผู้ป่วย ตลอดจนพัฒนาการดูแลสุขภาพของคนในสังคมให้ดียิ่งขึ้น
+    </p>
   </div>
 
-  <!-- 4. กิจกรรม & ฝึกประสบการณ์ -->
-  <div class="card">
+  <div class="card" id="activities">
     <h2>🏥 กิจกรรมและการฝึกประสบการณ์ทางการแพทย์</h2>
     
     <div class="sub-item">
@@ -176,8 +191,7 @@ body {
     </div>
   </div>
 
-  <!-- 5. ผลงานทางวิชาการ & โครงงาน -->
-  <div class="card">
+  <div class="card" id="projects">
     <h2>🔬 ผลงานทางวิชาการและโครงงาน</h2>
     
     <div class="sub-item">
@@ -187,8 +201,18 @@ body {
     </div>
   </div>
 
-  <!-- 6. ช่องทางติดต่อ -->
-  <div class="card">
+  <div class="card" id="skills">
+    <h2>💡 ความสามารถพิเศษและทักษะเฉพาะทาง</h2>
+    <ul class="skill-list">
+      <li class="skill-tag">🩺 การปฐมพยาบาลเบื้องต้น & CPR</li>
+      <li class="skill-tag">🧬 ปฏิบัติการวิทยาศาสตร์/ชีววิทยา</li>
+      <li class="skill-tag">💻 วิทยาศาสตร์การคำนวณ (Medical Data Analysis)</li>
+      <li class="skill-tag">🗣️ ภาษาอังกฤษทางการแพทย์ (Medical Terminology)</li>
+      <li class="skill-tag">🤝 การรับฟังด้วยความเข้าใจ (Empathy)</li>
+    </ul>
+  </div>
+
+  <div class="card" id="contact">
     <h2>📞 ช่องทางการติดต่อ (Contact)</h2>
     <p>📧 <strong>อีเมล:</strong> thanapat@example.com</p>
     <p>📱 <strong>เบอร์โทรศัพท์:</strong> 08X-XXX-XXXX</p>
@@ -197,7 +221,5 @@ body {
   <a href="index.html" class="btn">⬅️ กลับหน้าแรก</a>
 </div>
 
-</body>
-</html>
 </body>
 </html>
