@@ -178,7 +178,23 @@ body {
 <html>
 <head>
   <style>
-    /* ===== วาง CSS ตรงนี้ ===== */
+    /* ===== กล่องสีขาวครอบทั้ง section (เหมือนกล่อง "คณะและสาขา") ===== */
+    .white-card {
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 25px 30px;
+      max-width: 900px;
+      margin: 20px auto;
+    }
+
+    .white-card h2 {
+      border-bottom: 2px solid #f5e642; /* เส้นเหลืองใต้หัวข้อ ตามภาพตัวอย่าง */
+      padding-bottom: 10px;
+      margin-bottom: 15px;
+    }
+
+    /* ===== กล่องครอบรูป 2 รูป ===== */
     .img-box {
       display: flex;
       gap: 8px;
@@ -207,21 +223,22 @@ body {
         height: 200px;
       }
     }
-    /* ===== จบส่วน CSS ===== */
   </style>
 </head>
 <body>
 
-  <h2>🏥 กิจกรรมและการฝึกประสบการณ์ทางการแพทย์</h2>
+  <!-- ===== กล่องสีขาวครอบทั้งหมด ===== -->
+  <div class="white-card">
+    <h2>🏥 กิจกรรมและการฝึกประสบการณ์ทางการแพทย์</h2>
 
-  <!-- ===== วาง HTML ตรงนี้ ตรงจุดที่เดิมมี sub-item อยู่ ===== -->
-  <div class="sub-item">
-    <h3>1. การฝึกประสบการณ์/จิตอาสาในโรงพยาบาล</h3>
-    <div class="img-box">
-      <img src="img/รพ.บบ..jpg" alt="ภาพกิจกรรมจิตอาสาโรงพยาบาล 1">
-      <img src="img/ฝึกงาน.jpg" alt="ภาพกิจกรรมจิตอาสาโรงพยาบาล 2">
+    <div class="sub-item">
+      <h3>1. การฝึกประสบการณ์/จิตอาสาในโรงพยาบาล</h3>
+      <div class="img-box">
+        <img src="img/รพ.บบ..jpg" alt="ภาพกิจกรรมจิตอาสาโรงพยาบาล 1">
+        <img src="img/ฝึกงาน.jpg" alt="ภาพกิจกรรมจิตอาสาโรงพยาบาล 2">
+      </div>
+      <p><strong>รายละเอียด:</strong> สังเกตการณ์การทำงานของทีมแพทย์ และช่วยดูแลอำนวยความสะดวกผู้ป่วย</p>
     </div>
-    <p><strong>รายละเอียด:</strong> สังเกตการณ์การทำงานของทีมแพทย์ และช่วยดูแลอำนวยความสะดวกผู้ป่วย</p>
   </div>
 
 </body>
@@ -276,6 +293,7 @@ body {
 
 </body>
 </html>
+  
   <div class="card" id="skills">
     <h2>💡 ความสามารถพิเศษและทักษะเฉพาะทาง</h2>
     <ul class="skill-list">
