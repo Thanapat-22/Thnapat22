@@ -177,18 +177,59 @@ body {
   <div class="card" id="activities">
     <h2>🏥 กิจกรรมและการฝึกประสบการณ์ทางการแพทย์</h2>
     
-    <div class="sub-item">
-      <h3>1. การฝึกประสบการณ์/จิตอาสาในโรงพยาบาล</h3>
-      <img src="img/รพ.บบ..jpg" alt="ภาพกิจกรรมจิตอาสาโรงพยาบาล" class="item-img">
-      <p><strong>รายละเอียด:</strong> สังเกตการณ์การทำงานของทีมแพทย์ และช่วยดูแลอำนวยความสะดวกผู้ป่วย</p>
-    </div>
+   <h2>🏥 กิจกรรมและการฝึกประสบการณ์ทางการแพทย์</h2>
 
+<div class="sub-item">
+  <h3>1. การฝึกประสบการณ์/จิตอาสาในโรงพยาบาล</h3>
+  <div class="img-box">
+    <img src="img/รพ.บบ..jpg" alt="ภาพกิจกรรมจิตอาสาโรงพยาบาล 1">
+    <img src="img/รพ.บบ.2.jpg" alt="ภาพกิจกรรมจิตอาสาโรงพยาบาล 2">
+  </div>
+  <p><strong>รายละเอียด:</strong> สังเกตการณ์การทำงานของทีมแพทย์ และช่วยดูแลอำนวยความสะดวกผู้ป่วย</p>
+</div>
+
+    .img-box {
+  display: flex;
+  gap: 8px;
+  border: 2px solid #ccc;      /* กรอบของช่องรวม */
+  border-radius: 10px;
+  padding: 8px;
+  overflow: hidden;
+  background: #fafafa;
+}
+
+.img-box img {
+  flex: 1;                      /* แบ่งพื้นที่เท่ากันภายในกรอบเดียวกัน */
+  width: 50%;
+  height: 200px;                /* กำหนดความสูงให้เท่ากันทั้งสองรูป */
+  object-fit: cover;            /* ครอปรูปให้เต็มพื้นที่โดยไม่บิดเบี้ยว */
+  border-radius: 6px;
+}
     <div class="sub-item">
       <h3>2. การฝึกประสบการณ์/โรงพยาบาลส่งเสริมสุขภาพ (CPR & First Aid)</h3>
+      <img src="img/activity2.jpg" alt="ภาพกิจกรรม CPR" class="item-img">
       <img src="img/activity2.jpg" alt="ภาพกิจกรรม CPR" class="item-img">
       <p><strong>รายละเอียด:</strong> ได้มีการฝึกปฏิบัติจริงและเป็นผู้ช่วยพยาบาล</p>
     </div>
   </div>
+
+  .img-box {
+  display: flex;
+  gap: 8px;
+  border: 2px solid #ccc;      /* กรอบของช่องรวม */
+  border-radius: 10px;
+  padding: 8px;
+  overflow: hidden;
+  background: #fafafa;
+}
+
+.img-box img {
+  flex: 1;                      /* แบ่งพื้นที่เท่ากันภายในกรอบเดียวกัน */
+  width: 50%;
+  height: 200px;                /* กำหนดความสูงให้เท่ากันทั้งสองรูป */
+  object-fit: cover;            /* ครอปรูปให้เต็มพื้นที่โดยไม่บิดเบี้ยว */
+  border-radius: 6px;
+}
 
   <div class="card" id="skills">
     <h2>💡 ความสามารถพิเศษและทักษะเฉพาะทาง</h2>
