@@ -11,404 +11,258 @@
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { 
-  font-family: 'Sarabun', sans-serif; 
-  background-color: #1D4F91; 
-  color: white; 
-  text-align: center; 
-  padding: 40px 20px; 
-  line-height: 1.6;
+body {
+  font-family: 'Sarabun', sans-serif;
+  background-color: #1D4F91;
+  color: white;
+  text-align: center;
+  padding: 0;
+  line-height: 1.7;
+  min-height: 100vh;
 }
-.container { max-width: 800px; margin: 0 auto; }
-
-.profile-section { 
-  display: flex; 
-  flex-direction: column; 
-  align-items: center; 
-  position: relative; 
-  margin-bottom: 25px; 
-  padding-top: 10px;
-}
-
-.logo-wrapper { 
-  position: absolute;
-  top: -10px;
-  right: -5px;
-}
-
-.university-logo { 
-  width: 130px;
-  height: auto;
-  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.35));
-}
-
-.profile-img { 
-  width: 200px; 
-  height: 200px; 
-  object-fit: cover; 
-  border-radius: 50%; 
-  border: 4px solid #FFC845; 
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-  margin-top: 30px;
-}
+.container { max-width: 800px; margin: 0 auto; padding: 30px 20px 60px; }
 
 .nav-menu {
-  position: sticky;
-  top: 0;
-  background: #1D4F91;
-  padding: 12px 0;
-  margin: 0 -20px 20px -20px;
-  z-index: 100;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  position: sticky; top: 0; background: #1D4F91; padding: 12px 0; margin: 0 0 10px 0;
+  z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 6px;
 }
-.nav-menu a {
-  color: white;
-  text-decoration: none;
-  margin: 0 10px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  padding: 6px 10px;
-  border-radius: 6px;
-  transition: background 0.2s;
-  display: inline-block;
+.nav-menu button {
+  color: white; background: transparent; border: none; font-size: 0.85rem; font-weight: 600;
+  padding: 7px 12px; border-radius: 6px; cursor: pointer; font-family: inherit; transition: background 0.2s;
 }
-.nav-menu a:hover { background: rgba(255,255,255,0.15); }
+.nav-menu button:hover { background: rgba(255,255,255,0.15); }
+.nav-menu button.active { background: #FFC845; color: #1D4F91; }
 
-.card { 
-  background: white; 
-  color: #333; 
-  padding: 25px; 
-  margin: 25px 0; 
-  border-radius: 12px; 
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
-  text-align: left; 
-  scroll-margin-top: 70px;
-}
+.page { display: none; }
+.page.active { display: block; animation: fadein .35s ease; }
+@keyframes fadein { from {opacity:0; transform: translateY(6px);} to {opacity:1; transform: translateY(0);} }
 
-.card h2 { 
-  color: #1D4F91; 
-  font-size: 1.3rem; 
-  margin-bottom: 15px; 
-  border-bottom: 2px solid #FFC845; 
-  padding-bottom: 8px; 
+.page-counter { font-size: 0.85rem; color: #cfe0f5; margin-bottom: 14px; }
+
+.cover { display: flex; flex-direction: column; align-items: center; padding-top: 10px; }
+.logo-wrapper { margin-bottom: 10px; }
+.university-logo { width: 110px; height: auto; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.35)); }
+.profile-img {
+  width: 190px; height: 190px; object-fit: cover; border-radius: 50%;
+  border: 4px solid #FFC845; box-shadow: 0 4px 15px rgba(0,0,0,0.3); margin: 10px 0 20px;
 }
+.cover h1 { font-size: 1.6rem; margin-bottom: 8px; }
+.cover .subtitle { font-size: 1.05rem; margin-bottom: 4px; }
+.cover .tagline { color: #cfe0f5; margin-bottom: 10px; }
+
+.card {
+  background: white; color: #333; padding: 25px; margin: 0 0 25px 0; border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2); text-align: left;
+}
+.card h2 { color: #1D4F91; font-size: 1.3rem; margin-bottom: 15px; border-bottom: 2px solid #FFC845; padding-bottom: 8px; }
+.preface-text p { margin-bottom: 12px; text-align: justify; }
+.preface-text .signoff { text-align: right; margin-top: 20px; }
 
 .info-list { list-style: none; }
 .info-list li { margin-bottom: 8px; }
 
-.skill-list { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; margin-top: 10px; }
-.skill-tag { 
-  background-color: #eef3f9; 
-  color: #1D4F91; 
-  padding: 8px 16px; 
-  border-radius: 20px; 
-  font-size: 0.95rem; 
-  font-weight: 600; 
-  border: 1px solid #cce0f5; 
-}
-
 .sub-item { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px dashed #eee; }
 .sub-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
 
-.item-img {
-  width: 100%;
-  max-height: 280px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin: 12px 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
+.img-box { display: flex; gap: 8px; margin: 12px 0; border: 2px solid #eee; border-radius: 10px; padding: 8px; overflow: hidden; }
+.img-box img { flex: 1; width: 50%; height: 230px; object-fit: cover; border-radius: 6px; }
+@media (max-width: 600px) { .img-box { flex-direction: column; } .img-box img { width: 100%; height: 200px; } }
 
-.btn { 
-  display: inline-block; 
-  background: #FFC845; 
-  color: #1D4F91; 
-  padding: 12px 28px; 
-  text-decoration: none; 
-  border-radius: 8px; 
-  margin-top: 20px; 
-  font-weight: bold; 
-  transition: all 0.3s ease;
+.cert-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 15px; }
+.cert-item { background: #fafafa; border: 1px solid #eee; border-radius: 10px; padding: 10px; text-align: center; }
+.cert-item img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.cert-item p { margin-top: 10px; color: #333; font-weight: 600; font-size: 0.9rem; }
+@media (max-width: 600px) { .cert-grid { grid-template-columns: 1fr; } }
+
+.skill-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 15px; }
+.skill-card { background: #fafafa; border: 1px solid #eee; border-radius: 10px; padding: 12px; text-align: center; }
+.skill-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 10px; }
+.skill-card .skill-tag {
+  display: inline-block; background-color: #eef3f9; color: #1D4F91; padding: 8px 14px;
+  border-radius: 20px; font-size: 0.9rem; font-weight: 600; border: 1px solid #cce0f5;
 }
-.btn:hover { background: #e5b33e; transform: translateY(-2px); }
+@media (max-width: 600px) { .skill-grid { grid-template-columns: 1fr; } }
+
+.page-controls { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+.nav-btn {
+  background: #FFC845; color: #1D4F91; border: none; padding: 12px 22px; border-radius: 8px;
+  font-weight: bold; cursor: pointer; font-family: inherit; font-size: 0.95rem; transition: all .2s ease;
+}
+.nav-btn:hover { background: #e5b33e; transform: translateY(-2px); }
+.nav-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
 </style>
 </head>
 <body>
 
 <div class="container">
-  <h1>แฟ้มสะสมผลงาน (Portfolio)</h1>
 
-  <div class="profile-section">
-    <div class="logo-wrapper">
-      <img src="img/IMG_7868.png" alt="ตรามหาวิทยาลัยมหิดล" class="university-logo">
+  <nav class="nav-menu" id="navMenu"></nav>
+
+  <section class="page active" data-title="หน้าปก">
+    <div class="cover">
+      <div class="logo-wrapper">
+        <img src="img/IMG_7868.png" alt="ตรามหาวิทยาลัยมหิดล" class="university-logo">
+      </div>
+      <img src="img/poom.jpg" alt="รูปโปรไฟล์ของฉัน" class="profile-img">
+      <h1>แฟ้มสะสมผลงาน (Portfolio)</h1>
+      <p class="subtitle"><strong>นายธนภัฎ ภู่พูลเพียน (Thanapat Poopoonpain)</strong></p>
+      <p class="tagline">แฟ้มสะสมผลงานเพื่อการเข้าศึกษาต่อระดับอุดมศึกษา</p>
     </div>
-    <img src="img/poom.jpg" alt="รูปโปรไฟล์ของฉัน" class="profile-img">
-  </div>
+  </section>
 
-  <p style="font-size: 1.2rem; margin-bottom: 5px;">สวัสดีครับ! ผมชื่อ <strong>นายธนภัฎ ภู่พูลเพียน (Thanapat Poopoonpain)</strong></p>
-  <p style="margin-bottom: 20px;">แฟ้มสะสมผลงานเพื่อการเข้าศึกษาต่อระดับอุดมศึกษา</p>
-
-  <nav class="nav-menu">
-    <a href="#profile">👤 ประวัติส่วนตัว</a>
-    <a href="#target">🎯 คณะที่มุ่งหวัง</a>
-    <a href="#activities">🏥 กิจกรรม</a>
-    <a href="#certificates">🏆 เกียรติบัตร (Certificates)</a>
-    <a href="#skills">💡 ความสามารถพิเศษ</a>
-    <a href="#contact">📞 ช่องทางการติดต่อ</a>
-  </nav>
-  
-  <div class="card" id="profile">
-    <h2>👤 ประวัติส่วนตัว (Personal Profile)</h2>
-    <ul class="info-list">
-      <li><strong>ชื่อ-นามสกุล:</strong> นายธนภัฎ ภู่พูลเพียน (Thanapat Poopoonpain)</li>
-      <li><strong>แผนการเรียน:</strong> วิทยาศาสตร์ - คณิตศาสตร์</li>
-      <li><strong>โรงเรียน:</strong> [โรงเรียนบ้านบึง"อุตสาหกรรมนุเคราะห์"]</li>
-      <li><strong>เกรดเฉลี่ยสะสม (GPAX):</strong> [เช่น 3.70]</li>
-    </ul>
-  </div>
-
-   <div class="card" id="target">
-    <h2>🎯 คณะและสาขาวิชาที่มุ่งหวัง</h2>
-    <p><strong>คณะแพทยศาสตร์ มหาวิทยาลัยมหิดล</strong></p>
-    <p style="margin-top: 8px; color: #555;">
-    <strong>แรงบันดาลใจ:</strong> ตัวผมนั้นมีความตั้งใจและมุ่งมั่นที่อยากจะเข้าไปช่วยเหลือผู้คนที่มีความต้องการทางการแพทย์ โดยจะใช้วิชาความรู้ทางการแพทย์ และเทคโนโลยีทางการแพทย์ที่ได้เรียนรู้มาจากคณะแพทย์ศาตร์มหาลัยมหิดลครับ
-    </p>
-  </div>
-  
-<!DOCTYPE html>
-<html>
-<head>
-  <style>
-    .white-card {
-      background-color: #fff;
-      border-radius: 15px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      padding: 25px 30px;
-      max-width: 900px;
-      margin: 20px auto;
-    }
-
-    .white-card h2 {
-      color: #333;                     /* เพิ่มสีตัวอักษรให้มองเห็นชัด */
-      border-bottom: 2px solid #f5e642;
-      padding-bottom: 10px;
-      margin-bottom: 15px;
-    }
-
-    .img-box {
-      display: flex;
-      gap: 8px;
-      max-width: 700px;
-      margin: 10px auto;
-      border: 2px solid #eee;
-      border-radius: 10px;
-      padding: 8px;
-      overflow: hidden;
-    }
-
-    .img-box img {
-      flex: 1;
-      width: 50%;
-      height: 250px;
-      object-fit: cover;
-      border-radius: 6px;
-    }
-
-    @media (max-width: 600px) {
-      .img-box {
-        flex-direction: column;
-      }
-      .img-box img {
-        width: 100%;
-        height: 200px;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <div class="white-card" id="activities">
-    <h2>🏥 กิจกรรมและการฝึกประสบการณ์ทางการแพทย์</h2>
-
-    <div class="sub-item">
-      <h3>1. การฝึกประสบการณ์ในโรงพยาบาล</h3>
-      <div class="img-box">
-        <img src="img/รพ.บบ..jpg" alt="ภาพกิจกรรมจิตอาสาโรงพยาบาล 1">
-        <img src="img/ฝึกงาน.jpg" alt="ภาพกิจกรรมจิตอาสาโรงพยาบาล 2">
-      </div>
-      <p><strong>รายละเอียด:</strong> สังเกตการณ์การทำงานของทีมแพทย์ และช่วยดูแลอำนวยความสะดวกผู้ป่วย</p>
-    </div>
-  </div>
-</body>
-</html>
-    
- <!DOCTYPE html>
-<html>
-<head>
-  <style>
-    /* ===== กล่องสีขาวครอบทั้ง section ===== */
-    .white-card {
-      background-color: #fff;
-      border-radius: 15px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      padding: 25px 30px;
-      max-width: 900px;
-      margin: 20px auto;
-    }
-
-    .white-card h3 {
-      color: #333;
-      margin-bottom: 10px;
-    }
-
-    /* ===== กล่องครอบรูป 2 รูป ===== */
-    .img-box {
-      display: flex;
-      gap: 8px;
-      max-width: 700px;
-      margin: 10px auto;
-      border: 2px solid #eee;
-      border-radius: 10px;
-      padding: 8px;
-      overflow: hidden;
-    }
-
-    .img-box img {
-      flex: 1;
-      width: 50%;
-      height: 250px;
-      object-fit: cover;
-      border-radius: 6px;
-    }
-
-    @media (max-width: 600px) {
-      .img-box {
-        flex-direction: column;
-      }
-      .img-box img {
-        width: 100%;
-        height: 200px;
-      }
-    }
-    /* ===== จบส่วน CSS ===== */
-  </style>
-</head>
-<body>
-
-  <div class="white-card">
-    <div class="sub-item">
-      <h3>2. การฝึกประสบการณ์/โรงพยาบาลส่งเสริมสุขภาพ </h3>
-      <div class="img-box">
-        <img src="img/อนามัย.jpg" alt="ภาพกิจกรรมจิตอาสา 1">
-        <img src="img/อนามัย2.jpg" alt="ภาพกิจกรรมจิตอาสา 2">
-      </div>
-      <p><strong>รายละเอียด:</strong> ได้มีการฝึกปฏิบัติจริงและเป็นผู้ช่วยพยาบาล</p>
-    </div>
-  </div>
-</body>
-</html>
-
-  <!DOCTYPE html>
-<html>
-<head>
-  <style>
-    .white-card {
-      background-color: #fff;
-      border-radius: 15px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      padding: 25px 30px;
-      max-width: 900px;
-      margin: 20px auto;
-    }
-
-    .white-card h2 {
-      color: #333;
-      border-bottom: 2px solid #f5e642;
-      padding-bottom: 10px;
-      margin-bottom: 15px;
-    }
-
-    .cert-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      margin-top: 15px;
-    }
-
-    .cert-item {
-      background: #fafafa;
-      border: 1px solid #eee;
-      border-radius: 10px;
-      padding: 10px;
-      text-align: center;
-    }
-
-    .cert-item img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    .cert-item p {
-      margin-top: 10px;
-      color: #333;
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 600px) {
-      .cert-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <div class="white-card" id="certificates">
-    <h2>🏆 เกียรติบัตร (Certificates)</h2>
-
-    <div class="cert-grid">
-      <div class="cert-item">
-        <img src="img/7.jpg" alt="เกียรติบัตร 1">
-        <p>เกียรติบัตรเข้าร่วมกิจกรรม [โครงการค่ายพัฒนานวัตกรรมและเทคโนโลยี]</p>
-      </div>
-
-      <div class="cert-item">
-        <img src="img/8.jpg" alt="เกียรติบัตร 2">
-        <p>เกียรติบัตรเข้าร่วมกิจกรรม [วันวิทยาศาตร์แห่งชาติ]</p>
-      </div>
-
-      <div class="cert-item">
-        <img src="img/11.jpg" alt="เกียรติบัตร 3">
-        <p>เกียรติบัตรการอบรม [โครงการฝึกประสบการณ์วิชาชีพกลุ่มงานพยาบาล]</p>
+  <section class="page" data-title="คำนำ">
+    <div class="card">
+      <h2>📖 คำนำ</h2>
+      <div class="preface-text">
+        <p>แฟ้มสะสมผลงาน (Portfolio) ฉบับนี้จัดทำขึ้นเพื่อนำเสนอข้อมูลส่วนตัว ประวัติการศึกษา ประสบการณ์การเรียนรู้ และผลงานต่าง ๆ ของข้าพเจ้า นายธนภัฎ ภู่พูลเพียน ในระหว่างที่ศึกษาอยู่ในระดับชั้นมัธยมศึกษา แผนการเรียนวิทยาศาสตร์-คณิตศาสตร์ โดยมีความมุ่งหวังที่จะนำไปใช้ในการสมัครเข้าศึกษาต่อในระดับอุดมศึกษา คณะแพทยศาสตร์ มหาวิทยาลัยมหิดล</p>
+        <p>เนื้อหาภายในแฟ้มสะสมผลงานประกอบด้วยประวัติส่วนตัว เหตุผลและแรงบันดาลใจในการเลือกศึกษาต่อ กิจกรรมและการฝึกประสบการณ์ทางการแพทย์ เกียรติบัตรที่ได้รับจากการเข้าร่วมกิจกรรมต่าง ๆ ตลอดจนความสามารถพิเศษที่ได้สั่งสมมาตลอดระยะเวลาที่ผ่านมา ซึ่งข้าพเจ้าหวังว่าข้อมูลเหล่านี้จะสะท้อนให้เห็นถึงความตั้งใจ ความมุ่งมั่น และความพร้อมในการก้าวเข้าสู่วิชาชีพแพทย์ต่อไป</p>
+        <p>ข้าพเจ้าขอขอบพระคุณครูอาจารย์ ผู้ปกครอง และผู้ที่มีส่วนเกี่ยวข้องทุกท่าน ที่ได้ให้คำแนะนำ สนับสนุน และเป็นแรงผลักดันสำคัญในการจัดทำแฟ้มสะสมผลงานฉบับนี้ให้สำเร็จลุล่วงไปได้ด้วยดี หากมีข้อผิดพลาดประการใด ข้าพเจ้าขออภัยมา ณ ที่นี้ และพร้อมรับฟังคำแนะนำเพื่อนำไปปรับปรุงต่อไป</p>
+        <p class="signoff">นายธนภัฎ ภู่พูลเพียน<br>ผู้จัดทำ</p>
       </div>
     </div>
-  </div>
-</body>
-</html>
-  
-  <div class="card" id="skills">
-    <h2>💡 ความสามารถพิเศษและทักษะเฉพาะทาง</h2>
-    <ul class="skill-list">
-      <li class="skill-tag">🩺 การปฐมพยาบาลเบื้องต้น & CPR</li>
-      <li class="skill-tag">🧬 ปฏิบัติการวิทยาศาสตร์/ชีววิทยา</li>
-      <li class="skill-tag">💻 มีจิตอาสา</li>
-      <li class="skill-tag">🤝 การรับฟังด้วยความเข้าใจ (Empathy)</li>
-    </ul>
+  </section>
+
+  <section class="page" data-title="ประวัติส่วนตัว">
+    <div class="card">
+      <h2>👤 ประวัติส่วนตัว (Personal Profile)</h2>
+      <ul class="info-list">
+        <li><strong>ชื่อ-นามสกุล:</strong> นายธนภัฎ ภู่พูลเพียน (Thanapat Poopoonpain)</li>
+        <li><strong>แผนการเรียน:</strong> วิทยาศาสตร์ - คณิตศาสตร์</li>
+        <li><strong>โรงเรียน:</strong> [โรงเรียนบ้านบึง"อุตสาหกรรมนุเคราะห์"]</li>
+        <li><strong>เกรดเฉลี่ยสะสม (GPAX):</strong> [เช่น 3.70]</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="page" data-title="คณะที่มุ่งหวัง">
+    <div class="card">
+      <h2>🎯 คณะและสาขาวิชาที่มุ่งหวัง</h2>
+      <p><strong>คณะแพทยศาสตร์ มหาวิทยาลัยมหิดล</strong></p>
+      <p style="margin-top: 8px; color: #555;">
+      <strong>แรงบันดาลใจ:</strong> ตัวผมนั้นมีความตั้งใจและมุ่งมั่นที่อยากจะเข้าไปช่วยเหลือผู้คนที่มีความต้องการทางการแพทย์ โดยจะใช้วิชาความรู้ทางการแพทย์ และเทคโนโลยีทางการแพทย์ที่ได้เรียนรู้มาจากคณะแพทย์ศาตร์มหาลัยมหิดลครับ
+      </p>
+    </div>
+  </section>
+
+  <section class="page" data-title="กิจกรรม">
+    <div class="card">
+      <h2>🏥 กิจกรรมและการฝึกประสบการณ์ทางการแพทย์</h2>
+
+      <div class="sub-item">
+        <h3>1. การฝึกประสบการณ์ในโรงพยาบาล</h3>
+        <div class="img-box">
+          <img src="img/รพ.บบ..jpg" alt="ภาพกิจกรรมจิตอาสาโรงพยาบาล 1">
+          <img src="img/ฝึกงาน.jpg" alt="ภาพกิจกรรมจิตอาสาโรงพยาบาล 2">
+        </div>
+        <p><strong>รายละเอียด:</strong> สังเกตการณ์การทำงานของทีมแพทย์ และช่วยดูแลอำนวยความสะดวกผู้ป่วย</p>
+      </div>
+
+      <div class="sub-item">
+        <h3>2. การฝึกประสบการณ์/โรงพยาบาลส่งเสริมสุขภาพ</h3>
+        <div class="img-box">
+          <img src="img/อนามัย.jpg" alt="ภาพกิจกรรมจิตอาสา 1">
+          <img src="img/อนามัย2.jpg" alt="ภาพกิจกรรมจิตอาสา 2">
+        </div>
+        <p><strong>รายละเอียด:</strong> ได้มีการฝึกปฏิบัติจริงและเป็นผู้ช่วยพยาบาล</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" data-title="เกียรติบัตร">
+    <div class="card">
+      <h2>🏆 เกียรติบัตร (Certificates)</h2>
+      <div class="cert-grid">
+        <div class="cert-item">
+          <img src="img/7.jpg" alt="เกียรติบัตร 1">
+          <p>เกียรติบัตรเข้าร่วมกิจกรรม [โครงการค่ายพัฒนานวัตกรรมและเทคโนโลยี]</p>
+        </div>
+        <div class="cert-item">
+          <img src="img/8.jpg" alt="เกียรติบัตร 2">
+          <p>เกียรติบัตรเข้าร่วมกิจกรรม [วันวิทยาศาตร์แห่งชาติ]</p>
+        </div>
+        <div class="cert-item">
+          <img src="img/11.jpg" alt="เกียรติบัตร 3">
+          <p>เกียรติบัตรการอบรม [โครงการฝึกประสบการณ์วิชาชีพกลุ่มงานพยาบาล]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" data-title="ความสามารถพิเศษ">
+    <div class="card">
+      <h2>💡 ความสามารถพิเศษและทักษะเฉพาะทาง</h2>
+      <div class="skill-grid">
+        <div class="skill-card">
+          <img src="img/cpr.jpg" alt="ภาพการปฐมพยาบาลเบื้องต้น">
+          <span class="skill-tag">🩺 การปฐมพยาบาลเบื้องต้น &amp; CPR</span>
+        </div>
+        <div class="skill-card">
+          <img src="img/lab.jpg" alt="ภาพปฏิบัติการวิทยาศาสตร์">
+          <span class="skill-tag">🧬 ปฏิบัติการวิทยาศาสตร์/ชีววิทยา</span>
+        </div>
+        <div class="skill-card">
+          <img src="img/volunteer.jpg" alt="ภาพกิจกรรมจิตอาสา">
+          <span class="skill-tag">💻 มีจิตอาสา</span>
+        </div>
+        <div class="skill-card">
+          <img src="img/empathy.jpg" alt="ภาพการรับฟังผู้ป่วย">
+          <span class="skill-tag">🤝 การรับฟังด้วยความเข้าใจ (Empathy)</span>
+        </div>
+      </div>
+      <!-- หากบางรายการยังไม่มีรูป ให้ลบแท็ก <img> ของรายการนั้นออกได้เลย การ์ดจะแสดงแค่ป้ายชื่อทักษะ -->
+    </div>
+  </section>
+
+  <section class="page" data-title="ติดต่อ">
+    <div class="card">
+      <h2>📞 ช่องทางการติดต่อ (Contact)</h2>
+      <p>📧 <strong>อีเมล:</strong> tpoopoonpain@gmail.com</p>
+      <p>📱 <strong>เบอร์โทรศัพท์:</strong> 063-970-1210</p>
+      <p>📸 <strong>Instagram:</strong> thannpat_ly</p>
+    </div>
+  </section>
+
+  <div class="page-counter" id="pageCounter"></div>
+  <div class="page-controls">
+    <button class="nav-btn" id="prevBtn" onclick="changePage(-1)">⬅️ ก่อนหน้า</button>
+    <button class="nav-btn" id="nextBtn" onclick="changePage(1)">ถัดไป ➡️</button>
   </div>
 
-  <div class="card" id="contact">
-    <h2>📞 ช่องทางการติดต่อ (Contact)</h2>
-    <p>📧 <strong>อีเมล:</strong> tpoopoonpain@gmail.com</p>
-    <p>📱 <strong>เบอร์โทรศัพท์:</strong> 063-970-1210</p>
-    <p>📸 <strong>Instagram:</strong> thannpat_ly</p>
-  </div>
-
-  <a href="index.html" class="btn">⬅️ กลับหน้าแรก</a>
 </div>
+
+<script>
+  const pages = Array.from(document.querySelectorAll('.page'));
+  const navMenu = document.getElementById('navMenu');
+  const pageCounter = document.getElementById('pageCounter');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  let current = 0;
+
+  pages.forEach((p, i) => {
+    const btn = document.createElement('button');
+    btn.textContent = p.dataset.title;
+    btn.onclick = () => goTo(i);
+    navMenu.appendChild(btn);
+  });
+
+  function render() {
+    pages.forEach((p, i) => p.classList.toggle('active', i === current));
+    Array.from(navMenu.children).forEach((b, i) => b.classList.toggle('active', i === current));
+    pageCounter.textContent = `หน้า ${current + 1} จาก ${pages.length} · ${pages[current].dataset.title}`;
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === pages.length - 1;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function goTo(i) { current = i; render(); }
+  function changePage(delta) {
+    const next = current + delta;
+    if (next >= 0 && next < pages.length) { current = next; render(); }
+  }
+
+  render();
+</script>
 
 </body>
 </html>
