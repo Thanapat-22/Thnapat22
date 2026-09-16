@@ -23,11 +23,58 @@ body { font-family: 'Sarabun', sans-serif; background-color: #0b1a28; color: whi
 .nav-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 25px; }
 .nav-item { background: #112536; border: 1px solid #1f3f5c; color: #a0c4e8; padding: 7px 15px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; text-decoration: none; }
 .nav-item.active { background: #007acc; border-color: #0099ff; color: #ffffff; }
+
+/* การ์ดสีขาวสำหรับเนื้อหา */
 .white-card { background: #ffffff; color: #333333; border-radius: 14px; padding: 25px 30px; text-align: left; }
-.white-card h2 { color: #0b1a28; font-size: 1.2rem; margin-bottom: 15px; padding-bottom: 5px; border-bottom: 2.5px solid #007acc; display: inline-block; }
-.skill-list { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin-top: 10px; }
-.skill-tag { background-color: #e8f4fc; color: #005691; padding: 6px 14px; border-radius: 16px; font-weight: 600; font-size: 0.85rem; }
-@media (max-width: 600px) { .hero-header { flex-direction: column; } .side-logo { display: none; } .hero-card { flex-direction: column-reverse; text-align: center; } }
+.white-card h2 { color: #0b1a28; font-size: 1.2rem; margin-bottom: 20px; padding-bottom: 5px; border-bottom: 2.5px solid #007acc; display: inline-block; }
+
+/* โครงสร้างการเรียงรูปภาพ 4 รูป แบบเดียวกับหน้าผลงาน */
+.skills-grid { 
+  display: grid; 
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 20px; 
+}
+
+.skill-item { 
+  background: #f8f9fa; 
+  border: 1px solid #e9ecef; 
+  border-radius: 12px; 
+  padding: 12px; 
+  display: flex;
+  flex-direction: column;
+}
+
+.skill-item img { 
+  width: 100%; 
+  height: 180px; 
+  object-fit: cover; 
+  border-radius: 8px; 
+  border: 1px solid #ddd;
+}
+
+.skill-info {
+  margin-top: 10px;
+}
+
+.skill-info h3 {
+  font-size: 0.95rem;
+  color: #0b1a28;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.skill-info p {
+  font-size: 0.82rem;
+  color: #555555;
+  line-height: 1.4;
+}
+
+@media (max-width: 600px) { 
+  .hero-header { flex-direction: column; } 
+  .side-logo { display: none; } 
+  .hero-card { flex-direction: column-reverse; text-align: center; } 
+  .skills-grid { grid-template-columns: 1fr; } 
+}
 </style>
 </head>
 <body>
@@ -59,12 +106,45 @@ body { font-family: 'Sarabun', sans-serif; background-color: #0b1a28; color: whi
 
   <div class="white-card">
     <h2>ความสามารถพิเศษและทักษะเฉพาะทาง</h2>
-    <ul class="skill-list">
-      <li class="skill-tag">🩺 การปฐมพยาบาลเบื้องต้น & CPR</li>
-      <li class="skill-tag">🧬 ปฏิบัติการวิทยาศาสตร์/ชีววิทยา</li>
-      <li class="skill-tag">💻 มีจิตอาสา</li>
-      <li class="skill-tag">🤝 การรับฟังด้วยความเข้าใจ (Empathy)</li>
-    </ul>
+    
+    <div class="skills-grid">
+      <!-- ทักษะที่ 1 -->
+      <div class="skill-item">
+        <img src="img/cpr.jpg" alt="ทักษะที่ 1">
+        <div class="skill-info">
+          <h3>🩺 การปฐมพยาบาลเบื้องต้น & CPR</h3>
+          <p>ผ่านการอบรมการช่วยชีวิตขั้นพื้นฐาน สามารถปั๊มหัวใจและใช้อุปกรณ์ปฐมพยาบาลเบื้องต้นได้อย่างถูกต้อง</p>
+        </div>
+      </div>
+
+      <!-- ทักษะที่ 2 -->
+      <div class="skill-item">
+        <img src="img/lab.jpg" alt="ทักษะที่ 2">
+        <div class="skill-info">
+          <h3>🧬 ปฏิบัติการวิทยาศาสตร์/ชีววิทยา</h3>
+          <p>มีความชำนาญในการใช้กล้องจุลทรรศน์ การเตรียมสไลด์สด และปฏิบัติการทดลองทางวิทยาศาสตร์</p>
+        </div>
+      </div>
+
+      <!-- ทักษะที่ 3 -->
+      <div class="skill-item">
+        <img src="img/volunteer.jpg" alt="ทักษะที่ 3">
+        <div class="skill-info">
+          <h3>💻 งานจิตอาสาและการทำงานทีม</h3>
+          <p>มีจิตสาธารณะ พร้อมลงพื้นที่ช่วยเหลืองานชุมชนและทำงานร่วมกับผู้อื่นได้อย่างมีประสิทธิภาพ</p>
+        </div>
+      </div>
+
+      <!-- ทักษะที่ 4 -->
+      <div class="skill-item">
+        <img src="img/empathy.jpg" alt="ทักษะที่ 4">
+        <div class="skill-info">
+          <h3>🤝 การรับฟังด้วยความเข้าใจ (Empathy)</h3>
+          <p>ทักษะการสื่อสาร รับฟัง และสร้างความสัมพันธ์เชิงบวก ใส่ใจความรู้สึกของผู้ป่วยและคนรอบข้าง</p>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 </body>
