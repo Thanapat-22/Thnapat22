@@ -17,7 +17,7 @@ body {
   padding: 20px 15px; 
   line-height: 1.5;
 }
-.container { max-width: 800px; margin: 0 auto; } /* ปรับความกว้างรวมให้พอดี ไม่ใหญ่เกินไป */
+.container { max-width: 800px; margin: 0 auto; }
 
 /* ป้าย TCAS PORTFOLIO ด้านบนสุด */
 .top-badge-wrapper { text-align: center; margin-bottom: 15px; }
@@ -164,7 +164,7 @@ body {
 .img-box img {
   flex: 1;
   width: 50%;
-  height: 180px; /* ย่อความสูงรูปกิจกรรม */
+  height: 180px;
   object-fit: cover;
   border-radius: 8px;
   border: 1px solid #eee;
@@ -185,7 +185,7 @@ body {
 }
 .cert-item img {
   width: 100%;
-  height: 160px; /* ย่อความสูงรูปเกียรติบัตร */
+  height: 160px;
   object-fit: cover;
   border-radius: 6px;
 }
@@ -225,19 +225,19 @@ body {
 
   <!-- 2. Header ส่วนโปรไฟล์ย่อ + โลโก้ซ้ายขวา -->
   <div class="hero-header">
-    <img src="img/IMG_7868.png" alt="โลโก้ซ้าย" class="side-logo">
+    <img src="img/IMG_7868.png" alt="ตรามหาวิทยาลัย" class="side-logo">
 
     <div class="hero-card">
       <div class="hero-text">
         <h1>แฟ้มสะสมงาน (Portfolio)</h1>
         <p><strong>คณะแพทยศาสตร์ มหาวิทยาลัยมหิดล</strong></p>
         <p>หลักสูตรแพทยศาสตรบัณฑิต</p>
-        <p class="author">จัดทำโดย : ธนภัฎ ภู่พูลเพียน</p>
+        <p class="author">จัดทำโดย : ณัฐวรรธน์ เอื้อรักษ์โอฬาร</p>
       </div>
       <img src="img/poom.jpg" alt="รูปโปรไฟล์" class="hero-img">
     </div>
 
-    <img src="img/IMG_7868.png" alt="โลโก้ขวา" class="side-logo">
+    <img src="img/IMG_7868.png" alt="ตรามหาวิทยาลัย" class="side-logo">
   </div>
 
   <!-- 3. แถบเมนูนำทาง (Nav Menu) -->
@@ -373,26 +373,28 @@ body {
 
 </div>
 
-<!-- JavaScript สลับการแสดงผลหน้า -->
+<!-- JavaScript แก้ไขบั๊กให้ทำงานอย่างสมบูรณ์ -->
 <script>
   function switchTab(tabId) {
-    const pages = document.querySelectorAll('.page-content');
-    pages.forEach(page => page.classList.remove('active'));
+    var pages = document.querySelectorAll('.page-content');
+    pages.forEach(function(page) {
+      page.classList.remove('active');
+    });
 
-    const navItems = document.querySelectorAll('.nav-item');
-    navItems.forEach(item => item.classList.remove('active'));
+    var navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(function(item) {
+      item.classList.remove('active');
+    });
 
-    const activePage = document.getElementById('page-' + tabId);
+    var activePage = document.getElementById('page-' + tabId);
     if (activePage) {
       activePage.classList.add('active');
     }
 
-    const activeNav = document.getElementById('nav-' + tabId);
+    var activeNav = document.getElementById('nav-' + tabId);
     if (activeNav) {
       activeNav.classList.add('active');
     }
-
-    activePage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 </script>
 
