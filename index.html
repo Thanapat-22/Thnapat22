@@ -2,67 +2,69 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<title>หน้าแนะนำตัวของฉัน</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>แฟ้มสะสมผลงาน (Portfolio) - ธนภัฎ ภู่พูลเพียน</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-body {
-background-color: #001C71; /* สีน้ำเงินประจำมหาวิทยาลัยมหิดล */
-color: #333;
-text-align: center; 
-padding: 50px;
-font-family: sans-serif;
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { 
+  font-family: 'Sarabun', sans-serif; 
+  background-color: #1D4F91; 
+  color: white; 
+  text-align: center; 
+  padding: 40px 20px; 
+  line-height: 1.6;
 }
-.card {
-background: white; 
-border-radius: 30px;
-box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-max-width: 500px; 
-margin: 0 auto; 
-padding: 30px;
-}
+.container { max-width: 800px; margin: 0 auto; }
+.profile-section { display: flex; flex-direction: column; align-items: center; position: relative; margin-bottom: 25px; padding-top: 10px; }
+.logo-wrapper { position: absolute; top: -10px; right: -5px; }
+.university-logo { width: 130px; height: auto; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.35)); }
+.profile-img { width: 200px; height: 200px; object-fit: cover; border-radius: 50%; border: 4px solid #FFC845; box-shadow: 0 4px 15px rgba(0,0,0,0.3); margin-top: 30px; }
 
-/* สไตล์รูปโปรไฟล์ */
-.profile-img {
-width: 140px;
-height: 140px;
-border-radius: 50%; /* ทำรูปเป็นวงกลม */
-object-fit: cover; /* ปรับรูปภาพให้พอดีไม่เบี้ยว */
-border: 4px solid #FFC845; /* เส้นขอบสีทอง */
-margin: 15px auto;
-box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+.main-menu { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
+.menu-btn {
+  background: white;
+  color: #1D4F91;
+  padding: 18px 25px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  display: block;
+  text-align: left;
 }
-
-h1 { color: #2c3e50; margin-bottom: 10px; }
-p { font-size: 18px; line-height: 1.6; }
-
-/* สไตล์ปุ่มแฟ้มสะสมงาน */
-.btn-portfolio {
-display: inline-block;
-background-color: #FFC845; /* สีทอง/เหลืองทองสไตล์มหิดล */
-color: #001C71; /* ตัวอักษรสีน้ำเงินเข้ม */
-padding: 12px 24px;
-text-decoration: none;
-border-radius: 8px;
-margin-top: 15px;
-font-weight: bold;
-transition: background-color 0.3s ease;
-}
-
-.btn-portfolio:hover {
-background-color: #e5b33e; /* เปลี่ยนเฉดเล็กน้อยเมื่อนำเมาส์ไปชี้ */
-}
+.menu-btn:hover { background: #FFC845; transform: translateY(-3px); }
 </style>
 </head>
 <body>
-<div class="card">
-<h1>แฟ้มสะสมผลงาน (Portfolio)</h1>
 
-<!-- รูปโปรไฟล์ย้ายมาอยู่ใต้ h1 เรียบร้อยครับ -->
-<img src="img/poom.jpg" alt="รูปโปรไฟล์ของธนภัฎ ภู่พูลเพียน" class="profile-img">
+<div class="container">
+  <h1>แฟ้มสะสมผลงาน (Portfolio)</h1>
 
-<p>สวัสดีครับ! ผมชื่อ <strong>ธนภัฎ ภู่พูลเพียน (Thanapat Poopoonpain)</strong></p>
-<p>ขณะนี้กำลังศึกษา/สนใจด้าน Computer Science & Engineering</p>
-<p>นี่คือเว็บไซต์แรกของผมที่โฮสต์บน GitHub Pages!</p>
-<a href="portfolio.html" class="btn-portfolio">👉 ดูแฟ้มสะสมงานของผม</a>
+  <div class="profile-section">
+    <div class="logo-wrapper">
+      <img src="img/IMG_7868.png" alt="ตรามหาวิทยาลัยมหิดล" class="university-logo">
+    </div>
+    <img src="img/poom.jpg" alt="รูปโปรไฟล์ของฉัน" class="profile-img">
+  </div>
+
+  <p style="font-size: 1.2rem; margin-bottom: 5px;">สวัสดีครับ! ผมชื่อ <strong>นายธนภัฎ ภู่พูลเพียน (Thanapat Poopoonpain)</strong></p>
+  <p style="margin-bottom: 20px;">แฟ้มสะสมผลงานเพื่อการเข้าศึกษาต่อระดับอุดมศึกษา</p>
+
+  <!-- เมนูลิงก์ไปยังหน้าต่าง ๆ -->
+  <div class="main-menu">
+    <a href="profile.html" class="menu-btn">👤 ประวัติส่วนตัว (Personal Profile)</a>
+    <a href="target.html" class="menu-btn">🎯 คณะและสาขาวิชาที่มุ่งหวัง</a>
+    <a href="activities.html" class="menu-btn">🏥 กิจกรรมและการฝึกประสบการณ์</a>
+    <a href="certificates.html" class="menu-btn">🏆 เกียรติบัตร (Certificates)</a>
+    <a href="skills.html" class="menu-btn">💡 ความสามารถพิเศษและทักษะเฉพาะทาง</a>
+    <a href="contact.html" class="menu-btn">📞 ช่องทางการติดต่อ (Contact)</a>
+  </div>
 </div>
+
 </body>
 </html>
