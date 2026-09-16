@@ -1,5 +1,96 @@
 ==================================================
-ไฟล์: index.html
+โครงสร้างโฟลเดอร์ที่ต้องใช้:
+==================================================
+repo-root/
+├── index.html                <- หน้าแนะนำตัว (root)
+├── img/                      <- โฟลเดอร์รูปของหน้าแนะนำตัว (poom.jpg)
+└── portfolio/
+    ├── index.html            <- หน้าแรกของแฟ้มสะสมงาน
+    ├── foreword.html
+    ├── profile.html
+    ├── target.html
+    ├── activities.html
+    ├── certificates.html
+    ├── skills.html
+    ├── contact.html
+    └── img/                  <- โฟลเดอร์รูปของแฟ้มสะสมงาน (รูปเดียวกับที่ใช้ในหน้าต่างๆ)
+
+==================================================
+ไฟล์: index.html   (วางไว้ที่ root ของ repo)
+==================================================
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>หน้าแนะนำตัวของฉัน</title>
+<style>
+body {
+background-color: #001C71; /* สีน้ำเงินประจำมหาวิทยาลัยมหิดล */
+color: #333;
+text-align: center; 
+padding: 50px;
+font-family: sans-serif;
+}
+.card {
+background: white; 
+border-radius: 30px;
+box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+max-width: 500px; 
+margin: 0 auto; 
+padding: 30px;
+}
+
+/* สไตล์รูปโปรไฟล์ */
+.profile-img {
+width: 140px;
+height: 140px;
+border-radius: 50%; /* ทำรูปเป็นวงกลม */
+object-fit: cover; /* ปรับรูปภาพให้พอดีไม่เบี้ยว */
+border: 4px solid #FFC845; /* เส้นขอบสีทอง */
+margin: 15px auto;
+box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+h1 { color: #2c3e50; margin-bottom: 10px; }
+p { font-size: 18px; line-height: 1.6; }
+
+/* สไตล์ปุ่มแฟ้มสะสมงาน */
+.btn-portfolio {
+display: inline-block;
+background-color: #FFC845; /* สีทอง/เหลืองทองสไตล์มหิดล */
+color: #001C71; /* ตัวอักษรสีน้ำเงินเข้ม */
+padding: 12px 24px;
+text-decoration: none;
+border-radius: 8px;
+margin-top: 15px;
+font-weight: bold;
+transition: background-color 0.3s ease;
+}
+
+.btn-portfolio:hover {
+background-color: #e5b33e; /* เปลี่ยนเฉดเล็กน้อยเมื่อนำเมาส์ไปชี้ */
+}
+</style>
+</head>
+<body>
+<div class="card">
+<h1>แฟ้มสะสมผลงาน (Portfolio)</h1>
+
+<!-- รูปโปรไฟล์ย้ายมาอยู่ใต้ h1 เรียบร้อยครับ -->
+<img src="img/poom.jpg" alt="รูปโปรไฟล์ของธนภัฎ ภู่พูลเพียน" class="profile-img">
+
+<p>สวัสดีครับ! ผมชื่อ <strong>ธนภัฎ ภู่พูลเพียน (Thanapat Poopoonpain)</strong></p>
+<p>ขณะนี้กำลังศึกษา/สนใจด้าน Computer Science & Engineering</p>
+<p>นี่คือเว็บไซต์แรกของผมที่โฮสต์บน GitHub Pages!</p>
+<a href="portfolio/index.html" class="btn-portfolio">👉 ดูแฟ้มสะสมงานของผม</a>
+</div>
+</body>
+</html>
+-e 
+
+
+==================================================
+ไฟล์: portfolio/index.html
 ==================================================
 <!DOCTYPE html>
 <html lang="th">
@@ -174,7 +265,7 @@ footer { text-align: center; padding: 30px 20px 50px; background: #1D4F91; }
 
 
 ==================================================
-ไฟล์: foreword.html
+ไฟล์: portfolio/foreword.html
 ==================================================
 <!DOCTYPE html>
 <html lang="th">
@@ -352,7 +443,7 @@ footer { text-align: center; padding: 30px 20px 50px; background: #1D4F91; }
 
 
 ==================================================
-ไฟล์: profile.html
+ไฟล์: portfolio/profile.html
 ==================================================
 <!DOCTYPE html>
 <html lang="th">
@@ -525,7 +616,7 @@ footer { text-align: center; padding: 30px 20px 50px; background: #1D4F91; }
 
 
 ==================================================
-ไฟล์: target.html
+ไฟล์: portfolio/target.html
 ==================================================
 <!DOCTYPE html>
 <html lang="th">
@@ -696,7 +787,7 @@ footer { text-align: center; padding: 30px 20px 50px; background: #1D4F91; }
 
 
 ==================================================
-ไฟล์: activities.html
+ไฟล์: portfolio/activities.html
 ==================================================
 <!DOCTYPE html>
 <html lang="th">
@@ -881,7 +972,7 @@ footer { text-align: center; padding: 30px 20px 50px; background: #1D4F91; }
 
 
 ==================================================
-ไฟล์: certificates.html
+ไฟล์: portfolio/certificates.html
 ==================================================
 <!DOCTYPE html>
 <html lang="th">
@@ -1062,7 +1153,7 @@ footer { text-align: center; padding: 30px 20px 50px; background: #1D4F91; }
 
 
 ==================================================
-ไฟล์: skills.html
+ไฟล์: portfolio/skills.html
 ==================================================
 <!DOCTYPE html>
 <html lang="th">
@@ -1247,7 +1338,7 @@ footer { text-align: center; padding: 30px 20px 50px; background: #1D4F91; }
 
 
 ==================================================
-ไฟล์: contact.html
+ไฟล์: portfolio/contact.html
 ==================================================
 <!DOCTYPE html>
 <html lang="th">
