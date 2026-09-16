@@ -27,6 +27,15 @@
             font-weight: 700; 
         }
 
+        /* ส่วน Header ด้านบนแบบหน้าอื่นๆ */
+        .hero-header { display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 20px; }
+        .side-logo { width: 75px; height: 75px; border-radius: 50%; object-fit: contain; background: rgba(255, 255, 255, 0.1); padding: 4px; }
+        .hero-card { background: #112536; border: 1px solid #1a3850; border-radius: 14px; padding: 15px 20px; display: flex; align-items: center; justify-content: space-between; gap: 15px; flex: 1; max-width: 550px; }
+        .hero-text h1 { font-size: 1.15rem; color: #ffffff; margin-bottom: 4px; font-weight: 700; }
+        .hero-text p { font-size: 0.85rem; color: #b0c4de; margin-bottom: 2px; }
+        .hero-text .author { margin-top: 8px; font-size: 0.78rem; color: #7f9ebc; }
+        .hero-img { width: 95px; height: 95px; border-radius: 10px; object-fit: cover; border: 2px solid #2a4e70; }
+
         /* เมนูนำทาง */
         .nav-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 25px; }
         .nav-item { background: #112536; border: 1px solid #1f3f5c; color: #a0c4e8; padding: 7px 15px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; text-decoration: none; transition: 0.2s; }
@@ -36,7 +45,7 @@
         .back-btn-wrapper { text-align: center; margin-bottom: 20px; }
         .btn-home { background: linear-gradient(135deg, #e5b869 0%, #b8863b 100%); color: #0b1a28; padding: 8px 25px; border-radius: 20px; font-weight: bold; font-size: 0.88rem; text-decoration: none; display: inline-block; }
 
-        /* การ์ดกิจกรรมตามแบบตัวอย่าง */
+        /* การ์ดกิจกรรม */
         .activity-card {
             background: #112233;
             border: 1px solid #1f3a52;
@@ -73,7 +82,7 @@
         .media-box img {
             width: 100%;
             height: 240px;
-            object-fit: contain; /* ป้องกันรูปเบี้ยวหรือถูกตัด */
+            object-fit: contain;
             background-color: #050c14;
             border-radius: 8px;
         }
@@ -99,6 +108,9 @@
         }
 
         @media (max-width: 650px) {
+            .hero-header { flex-direction: column; } 
+            .side-logo { display: none; } 
+            .hero-card { flex-direction: column-reverse; text-align: center; } 
             .media-grid { grid-template-columns: 1fr; }
             .media-box img { height: 200px; }
             .activity-card { padding: 18px; }
@@ -110,6 +122,21 @@
 <div class="container">
     <div class="top-badge-wrapper"><div class="top-badge">TCAS PORTFOLIO</div></div>
     
+    <!-- เพิ่ม Hero Header ด้านบนตามสเปกเหมือนทุกหน้า -->
+    <div class="hero-header">
+        <img src="img/IMG_7868.png" alt="โลโก้" class="side-logo">
+        <div class="hero-card">
+            <div class="hero-text">
+                <h1>แฟ้มสะสมงาน (Portfolio)</h1>
+                <p><strong>คณะแพทยศาสตร์ มหาวิทยาลัยมหิดล</strong></p>
+                <p>หลักสูตรแพทยศาสตรบัณฑิต</p>
+                <p class="author">จัดทำโดย : ธนภัฎ ภู่พูลเพียน</p>
+            </div>
+            <img src="img/poom.jpg" alt="รูปโปรไฟล์" class="hero-img">
+        </div>
+        <img src="img/IMG_7868.png" alt="โลโก้" class="side-logo">
+    </div>
+
     <div class="back-btn-wrapper"><a href="index.html" class="btn-home">👈 กลับหน้าแรก</a></div>
 
     <!-- เมนูนำทาง -->
