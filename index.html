@@ -10,8 +10,8 @@
         
         body { 
             font-family: 'Sarabun', sans-serif; 
-            background-color: #ffffff; 
-            color: #333333; 
+            background-color: #0b1a28; 
+            color: #ffffff; 
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -20,7 +20,8 @@
         /* แถบ Navbar ด้านบนสุด */
         header {
             width: 100%;
-            background: #ffffff;
+            background: #112536;
+            border-bottom: 1px solid #1a3850;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -29,35 +30,37 @@
 
         .logo {
             font-weight: 700;
-            color: #e69d00;
+            color: #e5b869;
             font-size: 1.1rem;
             letter-spacing: 1px;
         }
 
         .nav-menu {
             display: flex;
-            gap: 20px;
+            gap: 12px;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .nav-link {
             text-decoration: none;
-            color: #888888;
-            font-size: 0.9rem;
+            color: #a0c4e8;
+            font-size: 0.88rem;
             font-weight: 600;
-            transition: color 0.2s;
+            padding: 7px 16px;
+            border-radius: 20px;
+            transition: all 0.2s;
         }
 
         .nav-link:hover {
-            color: #e69d00;
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.08);
         }
 
         .nav-link.active {
-            color: #e69d00;
-            background: #fff8e6;
-            padding: 6px 16px;
-            border-radius: 8px;
-            border: 1px solid #ffe8b3;
+            color: #ffffff;
+            background: #007acc;
+            border: 1px solid #0099ff;
         }
 
         /* ส่วนเนื้อหาตรงกลางหน้าจอ */
@@ -67,7 +70,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 40px 20px;
             text-align: center;
         }
 
@@ -78,51 +81,57 @@
         }
 
         .profile-img {
-            width: 140px;
-            height: 140px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3.5px solid #e69d00;
-            box-shadow: 0 4px 20px rgba(230, 157, 0, 0.15);
+            border: 3.5px solid #e5b869;
+            box-shadow: 0 4px 25px rgba(229, 184, 105, 0.25);
         }
 
         .system-tag {
-            color: #e69d00;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #a0c4e8;
+            padding: 4px 18px;
+            border-radius: 20px;
             font-size: 0.75rem;
             font-weight: 700;
             letter-spacing: 1.5px;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         h1 {
-            color: #e69d00;
-            font-size: 1.8rem;
+            color: #ffffff;
+            font-size: 1.9rem;
             font-weight: 700;
             margin-bottom: 8px;
         }
 
         .subtitle {
-            color: #aaaaaa;
-            font-size: 0.9rem;
-            margin-bottom: 25px;
+            color: #b0c4de;
+            font-size: 0.95rem;
+            margin-bottom: 30px;
         }
 
         /* ปุ่มไปหน้าถัดไปสีทอง */
         .btn-next {
-            background: #e69d00;
-            color: #ffffff;
-            padding: 10px 32px;
-            border-radius: 12px;
+            background: linear-gradient(135deg, #e5b869 0%, #b8863b 100%);
+            color: #0b1a28;
+            padding: 10px 35px;
+            border-radius: 20px;
             font-weight: 700;
             font-size: 0.95rem;
             text-decoration: none;
-            transition: background 0.2s, transform 0.1s;
-            box-shadow: 0 4px 14px rgba(230, 157, 0, 0.3);
+            transition: all 0.2s;
+            box-shadow: 0 4px 15px rgba(229, 184, 105, 0.3);
+            display: inline-block;
         }
 
         .btn-next:hover {
-            background: #d48f00;
             transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(229, 184, 105, 0.4);
         }
 
         @media (max-width: 768px) {
@@ -132,9 +141,8 @@
                 padding: 15px; 
             }
             .nav-menu { 
-                flex-wrap: wrap; 
                 justify-content: center; 
-                gap: 10px;
+                gap: 8px;
             }
         }
     </style>
