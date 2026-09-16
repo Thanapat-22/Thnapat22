@@ -11,17 +11,12 @@
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* ทำให้เวลาคลิกเมนู แล้วหน้าเว็บค่อยๆ เลื่อนลงมาแบบนุ่มนวล */
-html {
-  scroll-behavior: smooth;
-}
-
 body { 
   font-family: 'Sarabun', sans-serif; 
   background-color: #0b1a28;
   color: white; 
   padding: 20px 15px; 
-  line-height: 1.5;
+  line-height: 1.6;
 }
 .container { max-width: 800px; margin: 0 auto; }
 
@@ -82,46 +77,15 @@ body {
   border: 2px solid #2a4e70;
 }
 
-/* แถบเมนูนำทาง (ติดค้างไว้ด้านบนเมื่อเลื่อนหน้า) */
-.nav-container {
-  position: sticky;
-  top: 10px;
-  z-index: 100;
-  background: rgba(11, 26, 40, 0.95);
-  padding: 10px 0;
-  border-radius: 25px;
-  backdrop-filter: blur(5px);
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 20px;
-}
-.nav-item {
-  background: #112536;
-  border: 1px solid #1f3f5c;
-  color: #a0c4e8;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-.nav-item:hover {
-  background: #007acc;
-  color: #ffffff;
-}
-
-/* ปุ่มกลับหน้าแรก index.html */
-.back-btn-wrapper { text-align: center; margin-bottom: 25px; }
+/* ปุ่มกลับหน้าแรก index.html (คงไว้ด้านบนเสมอ) */
+.back-btn-wrapper { text-align: center; margin-bottom: 15px; }
 .btn-home {
   background: linear-gradient(135deg, #e5b869 0%, #b8863b 100%);
   color: #0b1a28;
-  padding: 8px 30px;
+  padding: 8px 25px;
   border-radius: 20px;
   font-weight: bold;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   text-decoration: none;
   display: inline-block;
   box-shadow: 0 3px 10px rgba(0,0,0,0.2);
@@ -131,31 +95,65 @@ body {
   transform: translateY(-2px);
 }
 
-/* การ์ดแสดงแต่ละหัวข้อแยกกัน */
-.section-block {
+/* แถบเมนูกดเปลี่ยนหน้า */
+.nav-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
   margin-bottom: 25px;
-  scroll-margin-top: 70px; /* เว้นระยะไม่ให้เมนูด้านบนบังตอนเลื่อนลงมา */
+}
+.nav-item {
+  background: #112536;
+  border: 1px solid #1f3f5c;
+  color: #a0c4e8;
+  padding: 7px 15px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+.nav-item:hover {
+  background: #1a3850;
+  color: #ffffff;
+}
+.nav-item.active {
+  background: #007acc;
+  border-color: #0099ff;
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 122, 204, 0.5);
 }
 
+/* การควบคุมระบบสลับหน้า (ซ่อน/แสดง) */
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
+
+/* การ์ดสีขาวแสดงเนื้อหา */
 .white-card {
   background: #ffffff;
   color: #333333;
   border-radius: 14px;
-  padding: 22px 25px;
+  padding: 25px 30px;
   text-align: left;
   box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
 .white-card h2 {
   color: #0b1a28;
-  font-size: 1.15rem;
-  margin-bottom: 12px;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
   padding-bottom: 5px;
   border-bottom: 2.5px solid #007acc;
   display: inline-block;
 }
 
 .info-list { list-style: none; margin-top: 10px; }
-.info-list li { margin-bottom: 8px; font-size: 0.92rem; }
+.info-list li { margin-bottom: 10px; font-size: 0.95rem; }
 
 .sub-item { margin-bottom: 15px; padding-bottom: 12px; border-bottom: 1px dashed #eee; }
 .sub-item h3 { font-size: 0.98rem; margin-bottom: 6px; }
@@ -215,7 +213,7 @@ body {
   .img-box { flex-direction: column; }
   .img-box img { width: 100%; height: 160px; }
   .cert-grid { grid-template-columns: 1fr; }
-  .white-card { padding: 18px 15px; }
+  .white-card { padding: 20px 18px; }
 }
 </style>
 </head>
@@ -245,25 +243,46 @@ body {
     <img src="img/IMG_7868.png" alt="ตรามหาวิทยาลัย" class="side-logo">
   </div>
 
-  <!-- 3. แถบเมนูกดเพื่อเลื่อนไปยังหัวข้อต่างๆ -->
-  <div class="nav-container">
-    <a href="#profile" class="nav-item">ประวัติส่วนตัว</a>
-    <a href="#target" class="nav-item">คณะที่มุ่งหวัง</a>
-    <a href="#activities" class="nav-item">ผลงานและกิจกรรม</a>
-    <a href="#certificates" class="nav-item">เกียรติบัตร</a>
-    <a href="#skills" class="nav-item">ความสามารถพิเศษ</a>
-    <a href="#contact" class="nav-item">ช่องทางการติดต่อ</a>
-  </div>
-
-  <!-- 4. ปุ่มกลับหน้าแรก index.html -->
+  <!-- 3. ปุ่มกดกลับไปหน้า index.html (มีอยู่ด้านบนทุกหัวข้อ) -->
   <div class="back-btn-wrapper">
-    <a href="index.html" class="btn-home">👈 กลับหน้าแรก</a>
+    <a href="index.html" class="btn-home">👈 กลับหน้าแรก (Index)</a>
   </div>
 
-  <!-- 5. แต่ละหัวข้อเรียงต่อกันลงมา -->
+  <!-- 4. แถบเมนูกดเปลี่ยนสลับหน้า -->
+  <div class="nav-container">
+    <div class="nav-item active" onclick="switchTab(event, 'preface')">คำนำ</div>
+    <div class="nav-item" onclick="switchTab(event, 'profile')">ประวัติส่วนตัว</div>
+    <div class="nav-item" onclick="switchTab(event, 'target')">คณะที่มุ่งหวัง</div>
+    <div class="nav-item" onclick="switchTab(event, 'activities')">ผลงานและกิจกรรม</div>
+    <div class="nav-item" onclick="switchTab(event, 'certificates')">เกียรติบัตร</div>
+    <div class="nav-item" onclick="switchTab(event, 'skills')">ความสามารถพิเศษ</div>
+    <div class="nav-item" onclick="switchTab(event, 'contact')">ช่องทางการติดต่อ</div>
+  </div>
 
-  <!-- หัวข้อ 1: ประวัติส่วนตัว -->
-  <div id="profile" class="section-block">
+  <!-- 5. ส่วนเนื้อหาแต่ละหน้า (จะสลับเปลี่ยนตามการกดเมนู) -->
+
+  <!-- หน้าที่ 1: คำนำ (Preface) -->
+  <div id="preface" class="tab-content active">
+    <div class="white-card">
+      <h2>คำนำ (Preface)</h2>
+      <p style="text-indent: 2em; margin-top: 10px; color: #444; font-size: 0.95rem;">
+        แฟ้มสะสมผลงาน (Portfolio) ฉบับนี้ จัดทำขึ้นเพื่อเป็นเอกสารนำเสนอข้อมูลเกี่ยวกับประวัติส่วนตัว ประวัติการศึกษา ผลงาน กิจกรรมจิตอาสา และความสามารถพิเศษของข้าพเจ้า <strong>นายธนภัฎ ภู่พูลเพียน</strong> เพื่อประกอบการพิจารณาคัดเลือกเข้าศึกษาต่อในระดับอุดมศึกษา <strong>คณะแพทยศาสตร์ มหาวิทยาลัยมหิดล</strong>
+      </p>
+      <p style="text-indent: 2em; margin-top: 10px; color: #444; font-size: 0.95rem;">
+        ข้าพเจ้ามีความตั้งใจและมุ่งมั่นที่จะเข้าศึกษาในสาขาวิชาด้านการแพทย์ เพื่อนำความรู้ ความเชี่ยวชาญ และเทคโนโลยีทางการแพทย์ มาพัฒนาและช่วยเหลือผู้ป่วยให้ได้รับการรักษาอย่างมีประสิทธิภาพ ข้าพเจ้าหวังเป็นอย่างยิ่งว่าแฟ้มสะสมผลงานเล่มนี้ จะสะท้อนให้เห็นถึงความมุ่งมั่น ทัศนคติที่ดี และศักยภาพของข้าพเจ้า
+      </p>
+      <p style="text-indent: 2em; margin-top: 10px; color: #444; font-size: 0.95rem;">
+        ขอขอบพระคุณคณะครูอาจารย์ ผู้ปกครอง และผู้มีส่วนเกี่ยวข้องทุกท่าน ที่ได้ให้การสนับสนุน คำแนะนำ และโอกาสในการทำกิจกรรมต่างๆ จนทำให้แฟ้มสะสมผลงานฉบับนี้สำเร็จลุล่วงไปด้วยดี
+      </p>
+      <div style="text-align: right; margin-top: 25px; font-weight: bold; color: #0b1a28;">
+        <p>นายธนภัฎ ภู่พูลเพียน</p>
+        <p style="font-size: 0.85rem; font-weight: normal; color: #666;">ผู้จัดทำ</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- หน้าที่ 2: ประวัติส่วนตัว -->
+  <div id="profile" class="tab-content">
     <div class="white-card">
       <h2>ข้อมูลส่วนตัว (Personal Details)</h2>
       <ul class="info-list">
@@ -276,8 +295,8 @@ body {
     </div>
   </div>
 
-  <!-- หัวข้อ 2: คณะที่มุ่งหวัง -->
-  <div id="target" class="section-block">
+  <!-- หน้าที่ 3: คณะที่มุ่งหวัง -->
+  <div id="target" class="tab-content">
     <div class="white-card">
       <h2>คณะและสาขาวิชาที่มุ่งหวัง</h2>
       <p style="font-size: 0.95rem; margin-bottom: 8px;"><strong>คณะแพทยศาสตร์ มหาวิทยาลัยมหิดล</strong></p>
@@ -287,8 +306,8 @@ body {
     </div>
   </div>
 
-  <!-- หัวข้อ 3: ผลงานและกิจกรรม -->
-  <div id="activities" class="section-block">
+  <!-- หน้าที่ 4: ผลงานและกิจกรรม -->
+  <div id="activities" class="tab-content">
     <div class="white-card">
       <h2>กิจกรรมและการฝึกประสบการณ์ทางการแพทย์</h2>
 
@@ -312,8 +331,8 @@ body {
     </div>
   </div>
 
-  <!-- หัวข้อ 4: เกียรติบัตร -->
-  <div id="certificates" class="section-block">
+  <!-- หน้าที่ 5: เกียรติบัตร -->
+  <div id="certificates" class="tab-content">
     <div class="white-card">
       <h2>เกียรติบัตร (Certificates)</h2>
 
@@ -336,8 +355,8 @@ body {
     </div>
   </div>
 
-  <!-- หัวข้อ 5: ความสามารถพิเศษ -->
-  <div id="skills" class="section-block">
+  <!-- หน้าที่ 6: ความสามารถพิเศษ -->
+  <div id="skills" class="tab-content">
     <div class="white-card">
       <h2>ความสามารถพิเศษและทักษะเฉพาะทาง</h2>
       <ul class="skill-list">
@@ -349,8 +368,8 @@ body {
     </div>
   </div>
 
-  <!-- หัวข้อ 6: ช่องทางการติดต่อ -->
-  <div id="contact" class="section-block">
+  <!-- หน้าที่ 7: ช่องทางการติดต่อ -->
+  <div id="contact" class="tab-content">
     <div class="white-card">
       <h2>ช่องทางการติดต่อ (Contact)</h2>
       <ul class="info-list">
@@ -362,6 +381,27 @@ body {
   </div>
 
 </div>
+
+<!-- JavaScript สลับเปลี่ยนเนื้อหา -->
+<script>
+  function switchTab(evt, tabId) {
+    // 1. ซ่อนหน้าเนื้อหาทั้งหมดก่อน
+    var tabContents = document.getElementsByClassName("tab-content");
+    for (var i = 0; i < tabContents.length; i++) {
+      tabContents[i].classList.remove("active");
+    }
+
+    // 2. ปลดสถานะปุ่มเมนูทั้งหมด
+    var navItems = document.getElementsByClassName("nav-item");
+    for (var i = 0; i < navItems.length; i++) {
+      navItems[i].classList.remove("active");
+    }
+
+    // 3. เปิดแสดงหน้าเนื้อหาที่คลิก และเน้นไฮไลท์ปุ่มเมนูนั้น
+    document.getElementById(tabId).classList.add("active");
+    evt.currentTarget.classList.add("active");
+  }
+</script>
 
 </body>
 </html>
