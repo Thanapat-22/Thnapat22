@@ -8,7 +8,7 @@
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Sarabun', sans-serif; background-color: #0b1a28; color: white; padding: 20px 15px; line-height: 1.6; }
-.container { max-width: 800px; margin: 0 auto; }
+.container { max-width: 900px; margin: 0 auto; }
 .top-badge-wrapper { text-align: center; margin-bottom: 15px; }
 .top-badge { display: inline-block; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); color: #a0c4e8; padding: 4px 18px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; }
 .hero-header { display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 20px; }
@@ -23,11 +23,92 @@ body { font-family: 'Sarabun', sans-serif; background-color: #0b1a28; color: whi
 .nav-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 25px; }
 .nav-item { background: #112536; border: 1px solid #1f3f5c; color: #a0c4e8; padding: 7px 15px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; text-decoration: none; }
 .nav-item.active { background: #007acc; border-color: #0099ff; color: #ffffff; }
-.white-card { background: #ffffff; color: #333333; border-radius: 14px; padding: 25px 30px; text-align: left; }
-.white-card h2 { color: #0b1a28; font-size: 1.2rem; margin-bottom: 15px; padding-bottom: 5px; border-bottom: 2.5px solid #007acc; display: inline-block; }
-.info-list { list-style: none; margin-top: 10px; }
-.info-list li { margin-bottom: 10px; font-size: 0.95rem; }
-@media (max-width: 600px) { .hero-header { flex-direction: column; } .side-logo { display: none; } .hero-card { flex-direction: column-reverse; text-align: center; } }
+
+/* โครงสร้างการแบ่ง 2 การ์ด */
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 20px;
+}
+
+.white-card {
+  background: #ffffff;
+  color: #333333;
+  border-radius: 14px;
+  padding: 25px 28px;
+  text-align: left;
+}
+
+.white-card h2 {
+  color: #0b1a28;
+  font-size: 1.15rem;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+  border-bottom: 2.5px solid #007acc;
+  display: inline-block;
+  font-weight: 700;
+}
+
+/* สไตล์ฝั่งประวัติการศึกษา */
+.edu-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.edu-item {
+  border-left: 3px solid #007acc;
+  padding-left: 12px;
+}
+
+.edu-item h3 {
+  font-size: 0.92rem;
+  color: #0b1a28;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.edu-item p {
+  font-size: 0.85rem;
+  color: #005691;
+  font-weight: 600;
+}
+
+.edu-item span {
+  display: block;
+  font-size: 0.78rem;
+  color: #666666;
+  margin-top: 2px;
+}
+
+/* สไตล์ฝั่งข้อมูลส่วนตัว */
+.info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 0.88rem;
+}
+
+.info-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.info-item {
+  line-height: 1.5;
+}
+
+.info-item strong {
+  color: #0b1a28;
+}
+
+@media (max-width: 768px) { 
+  .profile-grid { grid-template-columns: 1fr; }
+  .hero-header { flex-direction: column; } 
+  .side-logo { display: none; } 
+  .hero-card { flex-direction: column-reverse; text-align: center; } 
+}
 </style>
 </head>
 <body>
@@ -49,23 +130,65 @@ body { font-family: 'Sarabun', sans-serif; background-color: #0b1a28; color: whi
   <div class="back-btn-wrapper"><a href="index.html" class="btn-home">👈 กลับหน้าแรก</a></div>
   
   <div class="nav-container">
-  <a href="preface.html" class="nav-item">คำนำ</a>
-  <a href="me.html" class="nav-item">ประวัติส่วนตัว</a>
-  <a href="target.html" class="nav-item">คณะที่มุ่งหวัง</a>
-  <a href="activities.html" class="nav-item">ผลงานและเกียรติบัตร</a>
-  <a href="skills.html" class="nav-item">ความสามารถพิเศษ</a>
-  <a href="contact.html" class="nav-item">ช่องทางการติดต่อ</a>
-</div>
+    <a href="preface.html" class="nav-item">คำนำ</a>
+    <a href="me.html" class="nav-item active">ประวัติส่วนตัว</a>
+    <a href="target.html" class="nav-item">คณะที่มุ่งหวัง</a>
+    <a href="activities.html" class="nav-item">ผลงานและเกียรติบัตร</a>
+    <a href="skills.html" class="nav-item">ความสามารถพิเศษ</a>
+    <a href="contact.html" class="nav-item">ช่องทางการติดต่อ</a>
+  </div>
 
-  <div class="white-card">
-    <h2>ข้อมูลส่วนตัว (Personal Details)</h2>
-    <ul class="info-list">
-      <li><strong>ชื่อ-นามสกุล:</strong> นายธนภัฎ ภู่พูลเพียน</li>
-      <li><strong>Name:</strong> Mr. Thanapat Poopoonpain</li>
-      <li><strong>แผนการเรียน:</strong> วิทยาศาสตร์ - คณิตศาสตร์</li>
-      <li><strong>โรงเรียน:</strong> โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"</li>
-      <li><strong>เกรดเฉลี่ยสะสม (GPAX):</strong> [ใส่เกรดเฉลี่ยของคุณ]</li>
-    </ul>
+  <div class="profile-grid">
+    
+    <!-- การ์ดซ้าย: ประวัติการศึกษา -->
+    <div class="white-card">
+      <h2>ประวัติการศึกษา (Education)</h2>
+      <div class="edu-timeline">
+        <div class="edu-item">
+          <h3>การศึกษาระดับประถมศึกษา</h3>
+          <p>โรงเรียนวัฒนดรุณวิทย์</p>
+        </div>
+        <div class="edu-item">
+          <h3>ระดับมัธยมศึกษาตอนต้น</h3>
+          <p>โรงเรียนเทศบาล 1 (สถาวร)</p>
+        </div>
+        <div class="edu-item">
+          <h3>ระดับมัธยมศึกษาตอนปลาย</h3>
+          <p>โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"</p>
+          <span>แผนการเรียน วิทยาการคอมพิวเตอร์ (CSE)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- การ์ดขวา: ข้อมูลส่วนตัว -->
+    <div class="white-card">
+      <h2>ข้อมูลส่วนตัว (Personal Info)</h2>
+      <div class="info-list">
+        <div class="info-item"><strong>ชื่อ:</strong> นายธนภัฎ ภู่พูลเพียน</div>
+        <div class="info-item"><strong>Name:</strong> Mr. Thanaphat Phoophulphen</div>
+        
+        <div class="info-row">
+          <div class="info-item"><strong>ชื่อเล่น:</strong> ภูมิ</div>
+          <div class="info-item"><strong>Nickname:</strong> Poom</div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-item"><strong>อายุ:</strong> 17 ปี</div>
+          <div class="info-item"><strong>วันเกิด:</strong> -</div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-item"><strong>สัญชาติ:</strong> ไทย</div>
+          <div class="info-item"><strong>เชื้อชาติ:</strong> ไทย</div>
+          <div class="info-item"><strong>ศาสนา:</strong> พุทธ</div>
+        </div>
+
+        <div class="info-item"><strong>งานอดิเรก:</strong> เล่นกีฬาแบดมินตันและศึกษาหาความรู้เพิ่มเติม</div>
+        <div class="info-item"><strong>โรงเรียน:</strong> บ้านบึง "อุตสาหกรรมนุเคราะห์"</div>
+        <div class="info-item"><strong>แผนการเรียน:</strong> วิทยาการคอมพิวเตอร์ (CSE)</div>
+      </div>
+    </div>
+
   </div>
 </div>
 </body>
