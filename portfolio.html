@@ -95,7 +95,7 @@ body {
   transform: translateY(-2px);
 }
 
-/* แถบเมนูกดเปลี่ยนหน้า */
+/* แถบเมนูกดเปลี่ยนหน้า (อัปเดต URL เมื่อกด) */
 .nav-container {
   display: flex;
   justify-content: center;
@@ -111,6 +111,7 @@ body {
   border-radius: 20px;
   font-size: 0.82rem;
   font-weight: 600;
+  text-decoration: none;
   cursor: pointer;
   transition: all 0.2s ease;
   user-select: none;
@@ -248,15 +249,15 @@ body {
     <a href="index.html" class="btn-home">👈 กลับหน้าแรก (Index)</a>
   </div>
 
-  <!-- 4. แถบเมนูกดเปลี่ยนสลับหน้า -->
+  <!-- 4. แถบเมนูกดเปลี่ยนสลับหน้า + เปลี่ยน URL แท็บ -->
   <div class="nav-container">
-    <div class="nav-item active" onclick="switchTab(event, 'preface')">คำนำ</div>
-    <div class="nav-item" onclick="switchTab(event, 'profile')">ประวัติส่วนตัว</div>
-    <div class="nav-item" onclick="switchTab(event, 'target')">คณะที่มุ่งหวัง</div>
-    <div class="nav-item" onclick="switchTab(event, 'activities')">ผลงานและกิจกรรม</div>
-    <div class="nav-item" onclick="switchTab(event, 'certificates')">เกียรติบัตร</div>
-    <div class="nav-item" onclick="switchTab(event, 'skills')">ความสามารถพิเศษ</div>
-    <div class="nav-item" onclick="switchTab(event, 'contact')">ช่องทางการติดต่อ</div>
+    <a href="#preface" class="nav-item active" onclick="switchTab(event, 'preface')">คำนำ</a>
+    <a href="#profile" class="nav-item" onclick="switchTab(event, 'profile')">ประวัติส่วนตัว</a>
+    <a href="#target" class="nav-item" onclick="switchTab(event, 'target')">คณะที่มุ่งหวัง</a>
+    <a href="#activities" class="nav-item" onclick="switchTab(event, 'activities')">ผลงานและกิจกรรม</a>
+    <a href="#certificates" class="nav-item" onclick="switchTab(event, 'certificates')">เกียรติบัตร</a>
+    <a href="#skills" class="nav-item" onclick="switchTab(event, 'skills')">ความสามารถพิเศษ</a>
+    <a href="#contact" class="nav-item" onclick="switchTab(event, 'contact')">ช่องทางการติดต่อ</a>
   </div>
 
   <!-- 5. ส่วนเนื้อหาแต่ละหน้า (จะสลับเปลี่ยนตามการกดเมนู) -->
@@ -382,10 +383,10 @@ body {
 
 </div>
 
-<!-- JavaScript สลับเปลี่ยนเนื้อหา -->
+<!-- JavaScript สลับเปลี่ยนเนื้อหา + เปลี่ยน URL -->
 <script>
   function switchTab(evt, tabId) {
-    // 1. ซ่อนหน้าเนื้อหาทั้งหมดก่อน
+    // 1. ซ่อนเนื้อหาทั้งหมด
     var tabContents = document.getElementsByClassName("tab-content");
     for (var i = 0; i < tabContents.length; i++) {
       tabContents[i].classList.remove("active");
@@ -397,10 +398,31 @@ body {
       navItems[i].classList.remove("active");
     }
 
-    // 3. เปิดแสดงหน้าเนื้อหาที่คลิก และเน้นไฮไลท์ปุ่มเมนูนั้น
-    document.getElementById(tabId).classList.add("active");
-    evt.currentTarget.classList.add("active");
+    // 3. แสดงเนื้อหาที่เลือก
+    var targetTab = document.getElementById(tabId);
+    if (targetTab) {
+      targetTab.classList.add("active");
+    }
+
+    // 4. ไฮไลท์ปุ่มเมนูที่ตรงกับ tabId
+    var activeLink = document.querySelector('.nav-item[href="#' + tabId + '"]');
+    if (activeLink) {
+      activeLink.classList.add("active");
+    }
   }
+
+  // เช็กว่าเปิดเข้ามาทาง URL ที่มี # ต่อท้ายหรือไม่
+  function handleHash() {
+    var hash = window.location.hash.substring(1);
+    if (hash && document.getElementById(hash)) {
+      switchTab(null, hash);
+    } else {
+      switchTab(null, 'preface'); // ค่าเริ่มต้นถ้าไม่มี hash ให้เปิดหน้าคำนำ
+    }
+  }
+
+  window.addEventListener("DOMContentLoaded", handleHash);
+  window.addEventListener("hashchange", handleHash);
 </script>
 
 </body>
